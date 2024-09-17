@@ -64,34 +64,32 @@
 
       <div class="col-12 col-lg-4 mb-4">
         <div class="row">
-           <div id="my-card" class="card position-fixed">
-          <div class="card-body">
-            <h4>Categories</h4>
-            <div class="border-bottom"></div>
-            <p>Web Development</p>
-            <p>Web Development</p>
-            <p>Web Development</p>
-            <p>Web Development</p>
-            <p>Web Development</p>
+          <div id="my-card" class="card position-fixed">
+            <div class="card-body">
+              <h4>Categories</h4>
+              <div class="border-bottom"></div>
+              <p>Web Development</p>
+              <p>Web Development</p>
+              <p>Web Development</p>
+              <p>Web Development</p>
+              <p>Web Development</p>
+            </div>
           </div>
         </div>
-        </div>
-       
-        <div class="row">
-           <div id="my-card" class="card position-fixed">
-          <div class="card-body">
-            <h4>Categories</h4>
-            <div class="border-bottom"></div>
-            <p>Web Development</p>
-            <p>Web Development</p>
-            <p>Web Development</p>
-            <p>Web Development</p>
-            <p>Web Development</p>
+
+        <div class="row" style="margin-top: 19rem">
+          <div id="my-card" class="card position-fixed">
+            <div class="card-body">
+              <h4>Categories</h4>
+              <div class="border-bottom"></div>
+              <p>Web Development</p>
+              <p>Web Development</p>
+              <p>Web Development</p>
+              <p>Web Development</p>
+              <p>Web Development</p>
+            </div>
           </div>
         </div>
-        </div>
-       
-        
       </div>
 
       <div class="col-12 col-lg-8 mb-4">
@@ -101,7 +99,7 @@
             <img
               class="w-100"
               src="../../../assets/frontend/assets/img/backgrounds/6.jpg"
-              alt=""/>
+              alt="" />
           </div>
         </div>
       </div>
@@ -131,7 +129,7 @@
             <img
               class="h-50 w-100"
               src="../../../assets/frontend/assets/img/elements/1.jpg"
-              alt=""/>
+              alt="" />
           </div>
         </div>
       </div>
@@ -143,7 +141,7 @@
             <img
               class="h-50 w-100"
               src="../../../assets/frontend/assets/img/ecommerce-images/product-10.png"
-              alt=""/>
+              alt="" />
           </div>
         </div>
       </div>
@@ -178,6 +176,24 @@
           </div>
           <div class="modal-body">
             <!-- Repeated comment elements here -->
+            <div class="d-flex mb-4">
+              <div class="avatar me-3">
+                <img
+                  src="../../../assets/frontend/assets/img/avatars/1.png"
+                  class="h-auto rounded-circle" />
+              </div>
+              <div class="">
+                <h6>Alex leman</h6>
+                <div class="bg-primary p-3 comment text-white rounded">
+                  <span>very nice and nice comment</span>
+                </div>
+                <div class="comment_reaction">
+                  <button class="btn border-0" style="cursor: text">1h</button>
+                  <button class="btn border-0">Like</button>
+                  <button class="btn border-0">Reply</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

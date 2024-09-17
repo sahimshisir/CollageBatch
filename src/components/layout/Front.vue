@@ -1,8 +1,5 @@
 <script setup>
-import sidebar from "../frontend/include/sidebar.vue";
-import Header from "../frontend/include/topbar.vue";
-import Content from "../frontend/pages/main.vue";
-import footar from '../frontend/include/footer.vue'
+
 </script>
 
 <template>
@@ -23,7 +20,7 @@ import footar from '../frontend/include/footer.vue'
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
-          <Content/>
+          <router-view></router-view>
 
           <!-- / Content -->
 
@@ -48,7 +45,17 @@ import footar from '../frontend/include/footer.vue'
 </template>
 
 <script>
+import sidebar from "../frontend/include/sidebar.vue";
+import Header from "../frontend/include/topbar.vue";
+import footar from '../frontend/include/footer.vue';
+
+
 export default {
+  components:{
+    sidebar,
+    Header,
+    footar,
+  },
   mounted() {
     import("../../assets/frontend/assets/js/dashboards-analytics.js"),
       import("../../assets/frontend/assets/js/main.js"),

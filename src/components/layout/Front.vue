@@ -2,7 +2,7 @@
 import sidebar from "../frontend/include/sidebar.vue";
 import Header from "../frontend/include/topbar.vue";
 import Content from "../frontend/pages/main.vue";
-// import footar from './components/frontend/include/footer.vue'
+import footar from '../frontend/include/footer.vue'
 </script>
 
 <template>
@@ -28,7 +28,7 @@ import Content from "../frontend/pages/main.vue";
           <!-- / Content -->
 
           <!-- Footer -->
-          <!-- <footar/> -->
+          <footar/>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>

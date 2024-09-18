@@ -1,49 +1,12 @@
 <template>
-<<<<<<< HEAD
-     <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl">
-                <div
-                  class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
-                  <div>
-                    ©
-                   
-                    , made with ❤️ by
-                    <a href="https://pixinvent.com" target="_blank" class="footer-link text-primary fw-medium"
-                      >Pixinvent</a
-                    >
-                  </div>
-                  <div class="d-none d-lg-inline-block">
-                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank"
-                      >License</a
-                    >
-                    <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4"
-                      >More Themes</a
-                    >
-
-                    <a
-                      href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                      >Documentation</a
-                    >
-
-                    <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block"
-                      >Support</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </footer>
-</template>
-=======
   <footer
-    class="position-fixed py-1 bottom-0 start-0 w-100 bg-navbar-theme rounded-bottom rounded-pill d-block d-lg-none border-top border-primary">
+    class="position-fixed bottom-0 start-0 w-100 bg-navbar-theme rounded-bottom rounded-3 d-block d-lg-none border-top border-primary">
     <div class="container-xxl">
       <div
         class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-row"
         style="justify-content: space-around !important">
         <div class="d-flex">
-          <button class="btn"><i class="fa-solid fa-house"></i></button>
+          <button class="btn btn-sm btn-primary active"><i class="fa-solid fa-house"></i></button>
          
         </div>
         <div>
@@ -105,4 +68,3 @@
     </div>
   </div>
 </template>
->>>>>>> 072c1e6a211a3d18afbed51d9f222a01bb214c67

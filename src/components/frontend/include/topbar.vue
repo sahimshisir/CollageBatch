@@ -1,13 +1,5 @@
 <template>
   <nav
-<<<<<<< HEAD
-    class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-    id="layout-navbar">
-    <div
-      class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-      <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-        <i class="ti ti-menu-2 ti-sm"></i>
-=======
     class=" col-md-4 layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
     id="layout-navbar">
     <div
@@ -15,7 +7,6 @@
       <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
         <i class="ti ti-menu-2 ti-sm d-none"></i>
         <span>Warriors</span>
->>>>>>> 072c1e6a211a3d18afbed51d9f222a01bb214c67
       </a>
     </div>
 
@@ -23,15 +14,6 @@
       class="navbar-nav-right d-flex align-items-center"
       id="navbar-collapse">
       <!-- Search -->
-<<<<<<< HEAD
-      <div class="navbar-nav align-items-center">
-        <div class="nav-item navbar-search-wrapper mb-0">
-          <a
-            class="nav-item nav-link search-toggler d-flex align-items-center px-0"
-            href="javascript:void(0);">
-            <i class="ti ti-search ti-md me-2"></i>
-            <span class="d-none d-md-inline-block text-muted"
-=======
       <div class="navbar-nav align-items-center d-none d-sm-block">
         <div class="nav-item navbar-search-wrapper mb-0 d-none d-sm-block">
           <a
@@ -40,7 +22,6 @@
             data-bs-target="#searchModal" style="cursor: pointer;">
             <i class="ti ti-search ti-md me-2"></i>
             <span class="d-none d-md-block text-muted"
->>>>>>> 072c1e6a211a3d18afbed51d9f222a01bb214c67
               >Search (Ctrl+/)</span
             >
           </a>
@@ -50,11 +31,7 @@
 
       <ul class="navbar-nav flex-row align-items-center ms-auto">
         <!-- Language -->
-<<<<<<< HEAD
-        <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
-=======
         <!-- <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
->>>>>>> 072c1e6a211a3d18afbed51d9f222a01bb214c67
           <a
             class="nav-link dropdown-toggle hide-arrow"
             href="javascript:void(0);"
@@ -99,11 +76,7 @@
               </a>
             </li>
           </ul>
-<<<<<<< HEAD
-        </li>
-=======
         </li> -->
->>>>>>> 072c1e6a211a3d18afbed51d9f222a01bb214c67
         <!--/ Language -->
 
         <!-- Style Switcher -->
@@ -180,9 +153,7 @@
                   <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                     <i class="ti ti-calendar fs-4"></i>
                   </span>
-                  <a href="app-calendar.html" class="stretched-link"
-                    >Calendar</a
-                  >
+                  <RouterLink to="/yourBatch">Your Batch</RouterLink>
                   <small class="text-muted mb-0">Appointments</small>
                 </div>
                 <div class="dropdown-shortcuts-item col">
@@ -600,9 +571,9 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-              <a class="dropdown-item" href="pages-profile-user.html">
+              <a class="dropdown-item">
                 <i class="ti ti-user-check me-2 ti-sm"></i>
-                <span class="align-middle">My Profile</span>
+                <RouterLink to="/yourBatch" class="text-white">My Profile</RouterLink>
               </a>
             </li>
             <li>
@@ -670,8 +641,6 @@
       <i class="ti ti-x ti-sm search-toggler cursor-pointer"></i>
     </div>
   </nav>
-<<<<<<< HEAD
-=======
   <div class="modal fade mt-5 " id="searchModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -692,5 +661,4 @@
       </div>
     </div>
   </div>
->>>>>>> 072c1e6a211a3d18afbed51d9f222a01bb214c67
 </template>

@@ -2,26 +2,29 @@
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
       <!-- Menu -->
-      <sidebar/>
+      <sidebar />
       <!-- / Menu -->
 
       <!-- Layout container -->
       <div class="layout-page">
         <!-- Navbar -->
 
-        <Header/>
+        <Header />
 
         <!-- / Navbar -->
 
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
-          <router-view></router-view>
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <batchHeader />
+            <router-view></router-view>
+          </div>
 
           <!-- / Content -->
 
           <!-- Footer -->
-          <footar/>
+          <footar />
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
@@ -29,7 +32,6 @@
         <!-- Content wrapper -->
       </div>
       <!-- / Layout page -->
-     
     </div>
 
     <!-- Overlay -->
@@ -43,19 +45,20 @@
 <script>
 import sidebar from "../frontend/include/sidebar.vue";
 import Header from "../frontend/include/topbar.vue";
-import footar from '../frontend/include/footer.vue';
+import footar from "../frontend/include/footer.vue";
+import batchHeader from "../frontend/pages/Batch/include/header.vue";
 
 export default {
-components:{
-  Header,
-  sidebar,
-  footar,
-},
-mounted() {
+  components: {
+    Header,
+    sidebar,
+    footar,
+    batchHeader,
+  },
+  mounted() {
     import("../../assets/frontend/assets/js/dashboards-analytics.js");
-      import("../../assets/frontend/assets/js/main.js");
-      import("../../assets/frontend/assets/js/extended-ui-media-player.js");
+    import("../../assets/frontend/assets/js/main.js");
+    import("../../assets/frontend/assets/js/extended-ui-media-player.js");
   },
 };
 </script>
-

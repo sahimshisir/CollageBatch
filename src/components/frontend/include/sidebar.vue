@@ -33,7 +33,7 @@
               fill="#7367F0" />
           </svg>
         </span>
-        <span class="app-brand-text demo menu-text fw-bold text-white">Warriors</span>
+        <span class="app-brand-text demo menu-text fw-bold"><RouterLink class="text-white" to="/">Warriors</RouterLink></span>
       </a>
 
       <!-- <a

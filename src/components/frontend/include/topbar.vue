@@ -153,9 +153,7 @@
                   <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                     <i class="ti ti-calendar fs-4"></i>
                   </span>
-                  <a href="app-calendar.html" class="stretched-link"
-                    >Calendar</a
-                  >
+                  <RouterLink to="/Batch">Your Batch</RouterLink>
                   <small class="text-muted mb-0">Appointments</small>
                 </div>
                 <div class="dropdown-shortcuts-item col">
@@ -573,9 +571,9 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-              <a class="dropdown-item" href="pages-profile-user.html">
+              <a class="dropdown-item">
                 <i class="ti ti-user-check me-2 ti-sm"></i>
-                <span class="align-middle">My Profile</span>
+                <RouterLink to="/yourBatch" class="text-white">My Profile</RouterLink>
               </a>
             </li>
             <li>

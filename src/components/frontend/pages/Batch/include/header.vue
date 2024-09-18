@@ -44,7 +44,7 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-sm-row mb-4">
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:void(0);"><i
+                        <a class="nav-link active"><i
                                 class="ti-xs ti ti-user-check me-1"></i>
                                 <RouterLink to="/Post" class="text-white">Posts</RouterLink> </a>
                     </li>

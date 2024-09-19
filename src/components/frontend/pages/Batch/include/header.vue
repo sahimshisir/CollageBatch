@@ -92,7 +92,7 @@
         <div class="col-md-12">
             <ul class="nav nav-pills flex-column flex-sm-row mb-4">
                 <li class="nav-item">
-                    <RouterLink to="/Post" class="nav-link" active-class="active">
+                    <RouterLink to="/BatchPost" class="nav-link" active-class="active">
                         <i class="ti-xs ti ti-user-check me-1"></i> Posts
                     </RouterLink>
                 </li>

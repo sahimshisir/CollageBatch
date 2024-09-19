@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Parent components
 import FrontendLayout from '../components/layout/Front.vue';
-import BatchLayout from '../components/layout/batch.vue';
+import BatchLayout from '../components/layout/Batch.vue';
+import ProfileLayout from '../components/layout/Profile.vue';
 
 // Frontend components
 import Main from '../components/router/frontend/pages/main.vue';
@@ -37,7 +38,7 @@ const routes = [
         component: Batch,
       },
       {
-        path: '/Post',  // This will match "/batch/post"
+        path: '/BatchPost',  // This will match "/batch/post"
         component: Batch,
       },
       {
@@ -54,6 +55,37 @@ const routes = [
       },
       {
         path: '/BatchMedia',  // This will match "/batch/BatchMedia"
+        component: BatchMedia,
+      },
+    ],
+  },
+  {
+    // Batch layout routes
+    path: '/profile',
+    component: ProfileLayout,
+    children: [
+      {
+        path: '',  // This will match "/batch/post"
+        component: Batch,
+      },
+      {
+        path: '/Post',  // This will match "/batch/post"
+        component: Batch,
+      },
+      {
+        path: '/About',  // This will match "/batch/BatchAbout"
+        component: BatchAbout,
+      },
+      {
+        path: '/Content',  // This will match "/batch/BatchContent"
+        component: BatchContent,
+      },
+      {
+        path: '/Member',  // This will match "/batch/BatchMember"
+        component: BatchMember,
+      },
+      {
+        path: '/Media',  // This will match "/batch/BatchMedia"
         component: BatchMedia,
       },
     ],

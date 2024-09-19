@@ -573,7 +573,7 @@
             <li>
               <a class="dropdown-item">
                 <i class="ti ti-user-check me-2 ti-sm"></i>
-                <RouterLink to="/yourBatch" class="text-white">My Profile</RouterLink>
+                <RouterLink to="/profile" class="text-white">My Profile</RouterLink>
               </a>
             </li>
             <li>

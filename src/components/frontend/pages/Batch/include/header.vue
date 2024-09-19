@@ -107,7 +107,7 @@
                     </RouterLink>
                 </li>
                 <li class="nav-item">
-                    <RouterLink to="/Media" class="nav-link" active-class="active">
+                    <RouterLink to="/BatchMedia" class="nav-link" active-class="active">
                         <i class="ti-xs ti ti-link me-1"></i> Media
                     </RouterLink>
                 </li>

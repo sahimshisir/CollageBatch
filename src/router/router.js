@@ -17,6 +17,15 @@ import BatchMedia from '../components/frontend/pages/Batch/media.vue';
 import BatchMediaPhoto from '../components/frontend/pages/Batch/mediaSub/photo.vue'
 import BatchMediaVideo from '../components/frontend/pages/Batch/mediaSub/video.vue'
 
+// Profile
+import Profile from '../components/frontend/pages/Profile/profile.vue';
+import ProfileAbout from '../components/frontend/pages/Profile/about.vue';
+import ProfileContent from '../components/frontend/pages/Profile/content.vue';
+import ProfileMember from '../components/frontend/pages/Profile/member.vue';
+import ProfileMedia from '../components/frontend/pages/Profile/media.vue';
+import ProfileMediaPhoto from '../components/frontend/pages/Profile/mediaSub/photo.vue'
+import ProfileMediaVideo from '../components/frontend/pages/Profile/mediaSub/video.vue'
+
 const routes = [
   {
     // Frontend layout routes
@@ -56,7 +65,7 @@ const routes = [
         component: BatchMember,
       },
       {
-        path: '/Media',  // This will match "/batch/BatchMedia"
+        path: '/BatchMedia',  // This will match "/batch/BatchMedia"
         component: BatchMedia,
       },
       {
@@ -78,27 +87,36 @@ const routes = [
     children: [
       {
         path: '',  // This will match "/batch/post"
-        component: Batch,
+        component: Profile,
       },
       {
         path: '/Post',  // This will match "/batch/post"
-        component: Batch,
+        component: Profile,
       },
       {
         path: '/About',  // This will match "/batch/BatchAbout"
-        component: BatchAbout,
+        component: ProfileAbout,
       },
       {
         path: '/Content',  // This will match "/batch/BatchContent"
-        component: BatchContent,
+        component: ProfileContent,
       },
       {
         path: '/Member',  // This will match "/batch/BatchMember"
-        component: BatchMember,
+        component: ProfileMember,
       },
       {
         path: '/Media',  // This will match "/batch/BatchMedia"
-        component: BatchMedia,
+        component: ProfileMedia,
+      },
+      {
+        path: '/media/profile/photo',  // This will match "/batch/BatchMedia"
+        component: ProfileMediaPhoto,
+      },
+ 
+      {
+        path: '/media/profile/video',  // This will match "/batch/BatchMedia"
+        component: ProfileMediaVideo,
       },
     ],
   },

@@ -59,6 +59,7 @@ export default {
     import("../../assets/frontend/assets/js/dashboards-analytics.js");
     import("../../assets/frontend/assets/js/main.js");
     import("../../assets/frontend/assets/js/extended-ui-media-player.js");
+    import("../../../src/assets/frontend/assets/js/extended-ui-media-player")
   },
 };
 </script>

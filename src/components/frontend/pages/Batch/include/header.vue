@@ -90,7 +90,7 @@
     <!-- Navbar pills -->
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-pills flex-column flex-sm-row mb-4">
+            <ul class="nav nav-pills flex-row mb-4">
                 <li class="nav-item">
                     <RouterLink to="/BatchPost" class="nav-link" active-class="active">
                         <i class="ti-xs ti ti-user-check me-1"></i> Posts
@@ -107,7 +107,7 @@
                     </RouterLink>
                 </li>
                 <li class="nav-item">
-                    <RouterLink to="/BatchMedia" class="nav-link" active-class="active">
+                    <RouterLink to="/Media" class="nav-link" active-class="active">
                         <i class="ti-xs ti ti-link me-1"></i> Media
                     </RouterLink>
                 </li>

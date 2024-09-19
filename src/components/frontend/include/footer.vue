@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="position-fixed bottom-0 start-0 w-100 bg-navbar-theme rounded-bottom rounded-3 d-block d-lg-none border-top border-primary">
+    class="z-5 bottom-0 start-0 w-100 bg-navbar-theme rounded-bottom rounded-3 d-block d-lg-none border-top border-primary">
     <div class="container-xxl">
       <div
         class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-row"

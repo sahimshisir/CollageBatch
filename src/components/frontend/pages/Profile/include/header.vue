@@ -36,9 +36,10 @@
                   </li>
                 </ul>
               </div>
-              <!-- <a href="javascript:void(0)" class="btn btn-primary">
-                <i class="ti ti-check me-1"></i>Connected
-              </a> -->
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#ProfileEdit">
+                <i class="fa-regular fa-pen-to-square me-2" ></i> Edit Profile
+              </a>
             </div>
             <!-- <div class="d-flex align-items-center pt-1 mx-4 mt-2">
               <div class="d-flex align-items-center">
@@ -104,6 +105,57 @@
               </div>
             </div> -->
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ProfileEdit" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-bottom">
+          <!-- comment title -->
+          <h5 class="modal-title mb-2" id="modalScrollableTitle">Comments</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Repeated comment elements here -->
+          <div class="comment-body">
+            <div class="card-header">
+              <div class="d-flex">
+                <div class="avatar me-3">
+                  <img
+                    src="../../../.././../assets/frontend/assets/img/avatars/1.png"
+                    class="h-auto rounded-circle" />
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body"></div>
+            <div class="card-footer border-bottom mb-5"></div>
+            <!-- comment -->
+
+            <!-- comment -->
+          </div>
+        </div>
+        <div
+          class="modal-cmt-footer border-top d-flex align-items-center justify-content-around">
+          <div class="avatar me-1">
+            <img
+              src="../../../../../assets/frontend/assets/img/avatars/1.png"
+              class="h-auto rounded-circle" />
+          </div>
+          <input
+            class="form-control mt-2 rounded-pill w-75"
+            placeholder="Coment as ashraful"
+            type="text" />
+          <button type="submit" class="btn">
+            <i class="fa-solid fa-paper-plane me-1"></i>Send
+          </button>
         </div>
       </div>
     </div>

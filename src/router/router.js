@@ -13,6 +13,8 @@ import BatchAbout from '../components/frontend/pages/Batch/about.vue';
 import BatchContent from '../components/frontend/pages/Batch/content.vue';
 import BatchMember from '../components/frontend/pages/Batch/member.vue';
 import BatchMedia from '../components/frontend/pages/Batch/media.vue';
+import BatchMediaPhoto from '../components/frontend/pages/Batch/mediaSub/photo.vue'
+import BatchMediaVideo from '../components/frontend/pages/Batch/mediaSub/video.vue'
 
 const routes = [
   {
@@ -53,9 +55,19 @@ const routes = [
         component: BatchMember,
       },
       {
-        path: '/BatchMedia',  // This will match "/batch/BatchMedia"
+        path: '/Media',  // This will match "/batch/BatchMedia"
         component: BatchMedia,
       },
+      {
+        path: '/Media/photo',  // This will match "/batch/BatchMedia"
+        component: BatchMediaPhoto,
+      },
+ 
+      {
+        path: '/Media/video',  // This will match "/batch/BatchMedia"
+        component: BatchMediaVideo,
+      },
+ 
     ],
   },
   // Redirect root ("/") to "/frontend"

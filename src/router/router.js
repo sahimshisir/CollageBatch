@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Parent components
 import FrontendLayout from '../components/layout/Front.vue';
-import BatchLayout from '../components/layout/Batch.vue';
+import BatchLayout from '../components/layout/batch.vue';
 import ProfileLayout from '../components/layout/Profile.vue';
 
 // Frontend components

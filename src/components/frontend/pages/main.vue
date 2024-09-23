@@ -164,111 +164,217 @@
     </div>
 
     <div class="modal fade" id="comment" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom">
-                        <!-- comment title -->
-                        <h5 class="modal-title mb-2" id="modalScrollableTitle">Comments</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Repeated comment elements here -->
-                        <div class="comment-body ">
-                            <div class="card-header">
-                                <div class="d-flex">
-                                    <div class="avatar me-3">
-                                        <img src="../../../assets/frontend/assets/img/avatars/1.png"
-                                            class="h-auto rounded-circle" />
-                                    </div>
-                                    <div>
-                                        <h5>Alex leman</h5>
-                                        <span class="timer">10h ago</span>
-                                    </div>
-                                </div>
-                                <p class="mt-2 p-0">
-                                    lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Sapiente fugit incidunt inventore dolores
-                                    pariatur aut iusto aspernatur assumenda architecto consequatur
-                                    ratione earum id, sint labore officiis quo aperiam vero eligendi!
-                                </p>
-                            </div>
-
-                            <div class="card-body">
-                                <video class="w-100 rounded"
-                                    poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-                                    id="plyr-video-player" playsinline controls>
-                                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
-                                        type="video/mp4" />
-                                </video>
-                            </div>
-                            <div class="card-footer border-bottom mb-5">
-                                <div class="d-flex" style="justify-content: space-around">
-                                    <button class="btn border-0">
-                                        <i class="fa-regular fa-heart me-1 fs-4"></i>
-                                        <span style="font-size: 12px">12k</span>
-                                    </button>
-                                    <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
-                                        <i class="fa-regular fa-comment me-1 fs-4"></i>
-                                        <span style="font-size: 12px">12k</span>
-                                    </button>
-                                    <button class="btn border-0">
-                                        <i class="fa-solid fa-share me-1 fs-4"></i>
-                                        <span style="font-size: 12px">12k</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- comment -->
-                            <div class="d-flex">
-                                    <div class="avatar me-3">
-                                        <img src="../../../assets/frontend/assets/img/avatars/1.png"
-                                            class="rounded-circle cmt-img" />
-                                    </div>
-                                    <div>
-                                        <p class="card p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi repellat ad sapiente modi ullam architecto, praesentium odit reiciendis labore ratione!</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex like" style="justify-content: space-around">
-                                    
-                                    <button class="btn border-0">
-                                        <span style="font-size: 12px">12d</span>
-                                    </button>
-                                    <button class="btn border-0">
-                                        <i class="fa-regular fa-heart me-1 fs-6"></i>
-                                        <span style="font-size: 12px">12k</span>
-                                    </button>
-                                    <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
-                                        <i class="fa-regular fa-comment me-1 fs-6"></i>
-                                        <span style="font-size: 12px">Reply</span>
-                                    </button>
-                                </div>
-                            <!-- comment -->
-                        </div>
-                    </div>
-                    <div class="modal-cmt-footer border-top d-flex align-items-center justify-content-around">
-                        <div class="avatar me-1">
-                                        <img src="../../../assets/frontend/assets/img/avatars/1.png"
-                                            class="h-auto rounded-circle" />
-                                    </div>
-                        <input class="form-control mt-2 rounded-pill w-75" placeholder="Coment as ashraful" type="text">
-                        <button type="submit" class="btn"><i class="fa-solid fa-paper-plane me-1"></i>Send</button>
-                    </div>
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-bottom">
+            <!-- comment title -->
+            <h5 class="modal-title mb-2" id="modalScrollableTitle">Comments</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Repeated comment elements here -->
+            <div class="comment-body">
+              <div class="card-header">
+                <div class="d-flex">
+                  <div class="avatar me-3">
+                    <img
+                      src="../../../assets/frontend/assets/img/avatars/1.png"
+                      class="h-auto rounded-circle" />
+                  </div>
+                  <div>
+                    <h5>Alex leman</h5>
+                    <span class="timer">10h ago</span>
+                  </div>
                 </div>
+                <p class="mt-2 p-0">
+                  lorem ipsum for caption Lorem ipsum dolor sit amet,
+                  consectetur adipisicing elit. Sapiente fugit incidunt
+                  inventore dolores pariatur aut iusto aspernatur assumenda
+                  architecto consequatur ratione earum id, sint labore officiis
+                  quo aperiam vero eligendi!
+                </p>
+              </div>
+
+              <div class="card-body">
+                <video
+                  class="w-100 rounded"
+                  poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+                  id="plyr-video-player"
+                  playsinline
+                  controls>
+                  <source
+                    src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+                    type="video/mp4" />
+                </video>
+              </div>
+              <div class="card-footer border-bottom mb-5">
+                <div class="d-flex" style="justify-content: space-around">
+                  <button class="btn border-0">
+                    <i class="fa-regular fa-heart me-1 fs-4"></i>
+                    <span style="font-size: 12px">12k</span>
+                  </button>
+                  <button
+                    class="btn border-0"
+                    data-bs-toggle="modal"
+                    data-bs-target="#comment">
+                    <i class="fa-regular fa-comment me-1 fs-4"></i>
+                    <span style="font-size: 12px">12k</span>
+                  </button>
+                  <button class="btn border-0">
+                    <i class="fa-solid fa-share me-1 fs-4"></i>
+                    <span style="font-size: 12px">12k</span>
+                  </button>
+                </div>
+              </div>
+              <!-- comment -->
+              <div class="d-flex">
+                <div class="avatar me-3">
+                  <img
+                    src="../../../assets/frontend/assets/img/avatars/1.png"
+                    class="rounded-circle cmt-img" />
+                </div>
+                <div>
+                  <p class="card p-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Commodi repellat ad sapiente modi ullam architecto,
+                    praesentium odit reiciendis labore ratione!
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex like" style="justify-content: space-around">
+                <button class="btn border-0">
+                  <span style="font-size: 12px">12d</span>
+                </button>
+                <button class="btn border-0">
+                  <i class="fa-regular fa-heart me-1 fs-6"></i>
+                  <span style="font-size: 12px">12k</span>
+                </button>
+                <button
+                  class="btn border-0"
+                  data-bs-toggle="modal"
+                  data-bs-target="#comment">
+                  <i class="fa-regular fa-comment me-1 fs-6"></i>
+                  <span style="font-size: 12px">Reply</span>
+                </button>
+              </div>
+              <!-- comment -->
             </div>
+          </div>
+          <div
+            class="modal-cmt-footer border-top d-flex align-items-center justify-content-around">
+            <div class="avatar me-1">
+              <img
+                src="../../../assets/frontend/assets/img/avatars/1.png"
+                class="h-auto rounded-circle" />
+            </div>
+            <input
+              class="form-control mt-2 rounded-pill w-75"
+              placeholder="Coment as ashraful"
+              type="text" />
+            <button type="submit" class="btn">
+              <i class="fa-solid fa-paper-plane me-1"></i>Send
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="NewPost" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-bottom">
+            <!-- comment title -->
+            <h5 class="modal-title mb-2" id="modalScrollableTitle">Comments</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Repeated comment elements here -->
+            <div class="comment-body">
+              <div class="card-header">
+                <div class="d-flex">
+                  <div class="avatar me-3">
+                    <img
+                      src="../../../assets/frontend/assets/img/avatars/1.png"
+                      class="h-auto rounded-circle" />
+                  </div>
+                  
+                </div>
+                
+              </div>
+
+              <div class="card-body">
+              
+              </div>
+              <div class="card-footer border-bottom mb-5">
+                
+              </div>
+              <!-- comment -->
+              
+             
+              <!-- comment -->
+            </div>
+          </div>
+          <div
+            class="modal-cmt-footer border-top d-flex align-items-center justify-content-around">
+            <div class="avatar me-1">
+              <img
+                src="../../../assets/frontend/assets/img/avatars/1.png"
+                class="h-auto rounded-circle" />
+            </div>
+            <input
+              class="form-control mt-2 rounded-pill w-75"
+              placeholder="Coment as ashraful"
+              type="text" />
+            <button type="submit" class="btn">
+              <i class="fa-solid fa-paper-plane me-1"></i>Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+  <div class="post-button-container">
+    <button class="post-button btn-primary"  data-bs-toggle="modal"
+    data-bs-target="#NewPost"><i class="fa-solid fa-feather-pointed"></i></button>
+  </div>
+ 
 </template>
 
+<!-- <script>
+export default {
+  data() {
+    return {
+      menuVisible: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible;
+    },
+  },
+};
+</script> -->
 <style scoped>
-.modal-cmt-footer{
-    padding: 0.25rem 1.5rem 1.25rem;
+.modal-cmt-footer {
+  padding: 0.25rem 1.5rem 1.25rem;
 }
 
-.like{
-    margin-top: -10px !important;
+.like {
+  margin-top: -10px !important;
 }
-.cmt-img{
-    width: 45px !important;
-    height: 45px !important;
+.cmt-img {
+  width: 45px !important;
+  height: 45px !important;
 }
 .timer {
   display: block;
@@ -310,4 +416,29 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and other WebKit browsers */
 }
+
+
+
+.post-button-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.post-button {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.8s ease;
+}
+
+.post-button:hover {
+  transform: rotate(360deg);
+}
+
 </style>

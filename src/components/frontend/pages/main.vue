@@ -255,27 +255,45 @@
                 id=""></textarea>
               <!-- dropdown modal -->
               <div class="col-md-6 mb-4">
-                          <label for="selectpickerIcons" class="form-label">Icons</label>
-                          <select
-                            class="selectpicker w-100 show-tick"
-                            id="selectpickerIcons"
-                            data-icon-base="ti"
-                            data-tick-icon="ti-check"
-                            data-style="btn-default">
-                            <option data-icon="ti ti-brand-instagram">Instagram</option>
-                            <option data-icon="ti ti-brand-pinterest">Pinterest</option>
-                            <option data-icon="ti ti-brand-twitch">Twitch</option>
-                          </select>
-                        </div>
+                <label for="selectpickerIcons" class="form-label">Icons</label>
+                <select class="selectpicker w-100 show-tick" id="selectpickerIcons" data-icon-base="ti"
+                  data-tick-icon="ti-check" data-style="btn-default">
+                  <option data-icon="ti ti-brand-instagram">Instagram</option>
+                  <option data-icon="ti ti-brand-pinterest">Pinterest</option>
+                  <option data-icon="ti ti-brand-twitch">Twitch</option>
+                </select>
+              </div>
             </div>
             <!-- body -->
             <div class="card-body">
-              <!-- Hidden file input -->
-              <input type="file" class="d-none" id="file-upload">
-              <!-- Custom label with an image icon -->
-              <label for="file-upload" class="custom-file-label mt-2">
-                <span><i class="fa-solid fa-images fs-4"></i></span>
-              </label>
+              <div>
+                <!-- Multiple Image Upload -->
+                <input type="file" multiple @change="handleFilesUpload" class="d-none" id="file-upload">
+                <!-- Hidden file input -->
+                <label for="file-upload" class="custom-file-label mt-2">
+                  <span><i class="fa-solid fa-images fs-4"></i></span>
+                </label>
+
+                <!-- Display Swiper slider if there are images -->
+                <div v-if="images.length">
+                  <!-- Swiper Slider -->
+                  <swiper ref="mySwiper" :slides-per-view="slidesPerView" :space-between="10" :loop="true"
+                    :autoplay="{ delay: 3000, disableOnInteraction: false }" class="mySwiper">
+                    <!-- Swiper Slide -->
+                    <swiper-slide v-for="(image, index) in images" :key="index">
+                      <div class="slide-content">
+                        <img :src="image" alt="Uploaded Image" class="slider-image" />
+                        <!-- Remove Button -->
+                        <span @click="removeImage(index)" class="remove-btn">✕</span>
+                      </div>
+                    </swiper-slide>
+                  </swiper>
+                </div>
+
+                <!-- Upload Button -->
+                <!-- <button @click="submitImages" :disabled="!files.length">Upload Images</button> -->
+              </div>
+
             </div>
           </div>
         </div>
@@ -305,7 +323,114 @@ export default {
   },
 };
 </script> -->
+
+<script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+// import 'swiper/swiper-bundle.css';
+
+export default {
+  components: {
+    Swiper, SwiperSlide
+  },
+  data() {
+    return {
+      images: [],
+      files: [],
+      slidesPerView: 2 // Default value
+    };
+  },
+  mounted() {
+    this.updateSlidesPerView();
+    window.addEventListener('resize', this.updateSlidesPerView);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateSlidesPerView);
+  },
+  methods: {
+    handleFilesUpload(event) {
+      const selectedFiles = event.target.files;
+
+      for (let i = 0; i < selectedFiles.length; i++) {
+        const file = selectedFiles[i];
+        this.files.push(file);
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.images.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    },
+    removeImage(index) {
+      this.images.splice(index, 1);
+      this.files.splice(index, 1);
+      this.resetFileInput();
+    },
+    resetFileInput() {
+      this.$refs.fileInput.value = null;
+    },
+    submitImages() {
+      const formData = new FormData();
+      this.files.forEach(file => {
+        formData.append('images[]', file);
+      });
+
+      this.$axios.post('/upload', formData)
+        .then(response => {
+          console.log('Images uploaded successfully:', response.data);
+        })
+        .catch(error => {
+          console.error('Error uploading images:', error);
+        });
+    },
+    updateSlidesPerView() {
+      this.slidesPerView = window.innerWidth < 575 ? 1 : 2; // Adjust the breakpoint as needed
+    }
+  }
+};
+</script>
+
+
+
 <style scoped>
+.mySwiper {
+  display: flex;
+  max-width: 100%
+}
+
+.slider-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.slide-content {
+  position: relative;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 18px;
+}
+
+img {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .post-area {
   resize: none;
   margin-left: 40px;
@@ -405,5 +530,32 @@ textarea::-webkit-scrollbar {
 .post-button:hover {
   transform: rotate(360deg);
 }
-</style>
 
+#my-strictly-unique-vue-upload-multiple-image {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+</style>

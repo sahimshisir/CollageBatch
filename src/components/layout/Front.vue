@@ -50,6 +50,7 @@ components:{
   Header,
   sidebar,
   footar,
+  
 },
 mounted() {
     import("../../assets/frontend/assets/js/dashboards-analytics.js");
@@ -58,7 +59,7 @@ mounted() {
 
       import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.css");
       import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.js");
-      // import("../../assets/frontend/assets/vendor/libs/select2/select2.js");
+      import("../../assets/frontend/assets/vendor/libs/select2/select2.js");
       import("../../assets/frontend/assets/js/forms-selects.js");
     
 

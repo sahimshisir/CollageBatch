@@ -2,14 +2,14 @@
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
       <!-- Menu -->
-      <sidebar />
+      <sidebar/>
       <!-- / Menu -->
 
       <!-- Layout container -->
       <div class="layout-page">
         <!-- Navbar -->
 
-        <Header />
+        <Header/>
 
         <!-- / Navbar -->
 
@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import sidebar from "../frontend/include/sidebar.vue";
-import Header from "../frontend/include/topbar.vue";
+import sidebar from "../frontend/pages/Profile/include/sidecard.vue";
+import Header from "../frontend/pages/Profile/include/topbar.vue";
 import footar from "../frontend/include/footer.vue";
 import batchHeader from "../frontend/pages/Profile/include/header.vue";
 

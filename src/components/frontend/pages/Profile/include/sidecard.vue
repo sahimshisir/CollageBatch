@@ -2,7 +2,7 @@
   <aside id="layout-menu" class="layout-menu menu-vertical menu">
       <!-- Dashboards -->
       <div class="col-md-12 mb-4">
-        <div class="card h-100">
+        <div class="card" style="height: 100vw;">
           <div class="card-header d-flex justify-content-between pb-2 mb-1">
             <div class="card-title mb-1">
                 <a
@@ -68,7 +68,7 @@
                 </li>
                
               </ul>
-              <div class="tab-content p-0 pt-4 pb-0">
+              <div class="tab-content  p-0 pt-4 pb-0">
                 <div
                   class="tab-pane fade show active"
                   id="navs-justified-new"

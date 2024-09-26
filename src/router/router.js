@@ -110,12 +110,12 @@ const routes = [
         component: ProfileMedia,
       },
       {
-        path: '/media/profile/photo',  // This will match "/batch/BatchMedia"
+        path: '/media_profile_photo',  // This will match "/batch/BatchMedia"
         component: ProfileMediaPhoto,
       },
  
       {
-        path: '/media/profile/video',  // This will match "/batch/BatchMedia"
+        path: '/media_profile_video',  // This will match "/batch/BatchMedia"
         component: ProfileMediaVideo,
       },
     ],

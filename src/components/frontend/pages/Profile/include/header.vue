@@ -178,7 +178,7 @@
         </li>
         <li class="nav-item">
           <RouterLink to="/Member" class="nav-link" active-class="active">
-            <i class="ti-xs ti ti-layout-grid me-1"></i> Members
+            <i class="ti-xs ti ti-layout-grid me-1"></i> Friends
           </RouterLink>
         </li>
         <li class="nav-item">

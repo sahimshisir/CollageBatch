@@ -5,10 +5,22 @@
         <div class="card h-100">
           <div class="card-header d-flex justify-content-between pb-2 mb-1">
             <div class="card-title mb-1">
-              <h5 class="m-0 me-2">Orders</h5>
-              <small class="text-muted">62 Deliveries in Progress</small>
+                <a
+            class="nav-link dropdown-toggle hide-arrow"
+            href="javascript:void(0);"
+            data-bs-toggle="dropdown">
+            <div class="avatar avatar-online d-flex">
+              <img
+                src="../../../../../assets/frontend/assets/img/avatars/1.png"
+                class="h-auto rounded-circle" />
+                <h5 class="mt-2 ms-3">SHISHIR</h5>
             </div>
-            <div class="dropdown">
+            
+          </a>
+              
+              
+            </div>
+            <!-- <div class="dropdown">
               <button
                 class="btn p-0"
                 type="button"
@@ -25,7 +37,7 @@
                 <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
                 <a class="dropdown-item" href="javascript:void(0);">Share</a>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="card-body">
             <div class="nav-align-top">
@@ -39,7 +51,7 @@
                     data-bs-target="#navs-justified-new"
                     aria-controls="navs-justified-new"
                     aria-selected="true">
-                    New
+                    Details
                   </button>
                 </li>
                 <li class="nav-item">
@@ -51,7 +63,7 @@
                     data-bs-target="#navs-justified-link-preparing"
                     aria-controls="navs-justified-link-preparing"
                     aria-selected="false">
-                    Preparing
+                    Notification
                   </button>
                 </li>
                

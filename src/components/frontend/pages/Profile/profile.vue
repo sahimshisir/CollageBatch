@@ -5,9 +5,36 @@
       <!-- About User -->
       <div class="card mb-4">
         <div class="card-body">
-          <small class="card-text text-uppercase">About</small>
+          <small class="card-text text-uppercase fw-bold">Inro</small>
           <ul class="list-unstyled mb-4 mt-3">
-            <li class="d-flex align-items-center mb-3">
+            <li class="text-center">
+              <span>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Debitis consectetur ratione dolore excepturi nemo nisi soluta
+                optio odit amet, eligendi dolorem recusandae nulla perspiciatis
+                architecto sequi facere suscipit in id!
+              </span>
+              <p class="text-center text-uppercase fw-bold mt-1 mb-2 border p-2 border-2 text-heading">
+                <i class="ti ti-user text-heading"></i>
+                Bio
+              </p>
+            </li>
+            <li class="d-flex align-items-center mb-3 mt-4">
+              <i class="ti ti-user text-heading"></i
+              ><span class="fw-medium mx-2 text-heading">Full Name:</span>
+              <span>John Doe</span>
+            </li>
+            <li class="d-flex align-items-center mb-3 mt-4">
+              <i class="ti ti-user text-heading"></i
+              ><span class="fw-medium mx-2 ">Studied at</span>
+              <span class="fw-bold text-heading">John Doe</span>
+            </li>
+            <li class="d-flex align-items-center mb-3 mt-4">
+              <i class="ti ti-user text-heading"></i
+              ><span class="fw-medium mx-2 text-heading">Full Name:</span>
+              <span>John Doe</span>
+            </li>
+            <li class="d-flex align-items-center mb-3 mt-4">
               <i class="ti ti-user text-heading"></i
               ><span class="fw-medium mx-2 text-heading">Full Name:</span>
               <span>John Doe</span>
@@ -274,8 +301,6 @@
       </div>
     </div>
   </div>
-
-  
 </template>
 
 <style scoped>

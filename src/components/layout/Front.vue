@@ -61,7 +61,7 @@ mounted() {
       import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.js");
       import("../../assets/frontend/assets/vendor/libs/select2/select2.js");
       import("../../assets/frontend/assets/js/forms-selects.js");
-    
+      import("../../assets/frontend/assets/css/style.css");
 
      
   },

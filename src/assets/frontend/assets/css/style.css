@@ -53,10 +53,10 @@ img {
   border-radius: 5px;
 }
 
-span {
+/* span {
   font-weight: bold;
   font-size: 18px;
-}
+} */
 
 .post-area {
   resize: none;
@@ -173,7 +173,7 @@ textarea::-webkit-scrollbar {
   margin-top: 60px;
 }
 
-h1,
+/* h1,
 h2 {
   font-weight: normal;
 }
@@ -190,4 +190,4 @@ li {
 
 a {
   color: #42b983;
-}
+} */

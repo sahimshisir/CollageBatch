@@ -5,9 +5,10 @@
         <div class="card h-100">
           <div class="card-header d-flex justify-content-between pb-2 mb-1">
             <div class="card-title mb-1">
-                <a
+            <router-link to="/">
+                 <a
             class="nav-link dropdown-toggle hide-arrow"
-            href="javascript:void(0);"
+            
             data-bs-toggle="dropdown">
             <div class="avatar avatar-online d-flex">
               <img
@@ -17,6 +18,8 @@
             </div>
             
           </a>
+            </router-link>
+             
               
               
             </div>

@@ -10,7 +10,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      'cropperjs': 'cropperjs/dist/cropper.js', // Add this line
     },
   },
+  optimizeDeps: {
+    include: ['vue3-draggable-resizable']
+  }
 });

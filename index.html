@@ -88,8 +88,22 @@
     <link
       rel="stylesheet"
       href="./src/assets/frontend/assets/vendor/css/pages/cards-advance.css" />
-
-
+    <!-- Including CSS using link tags -->
+    <link
+      rel="stylesheet"
+      href="./src/assets/frontend/assets/vendor/libs/@form-validation/form-validation.css" />
+    <link
+      rel="stylesheet"
+      href="./src/assets/frontend/assets/vendor/libs/bs-stepper/bs-stepper.css" />
+    <link
+      rel="stylesheet"
+      href="./src/assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
+    <link
+      rel="stylesheet"
+      href="./src/assets/frontend/assets/vendor/libs/select2/select2.css" />
+    <link
+      rel="stylesheet"
+      href="./src/assets/frontend/assets/vendor/css/pages/page-auth.css" />
 
     <!-- Helpers -->
     <script src="./src/assets/frontend/assets/vendor/js/helpers.js"></script>
@@ -99,23 +113,26 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="./src/assets/frontend/assets/js/config.js"></script>
     <style>
-      ::-webkit-scrollbar{
-    width: 8px;
-}
-::-webkit-scrollbar-track{
-    background:transparent;
-}
-::-webkit-scrollbar-thumb{
-    background-color: #252839;
-    border-radius: 10px;
-}
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #252839;
+        border-radius: 10px;
+      }
     </style>
-
   </head>
 
   <body>
     <div id="app"></div>
 
+    <script>
+      // Check selected custom option
+      window.Helpers.initCustomOptionCheck();
+    </script>
     <script type="module" src="/src/main.js"></script>
     <script src="./src/assets/frontend/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="./src/assets/frontend/assets/vendor/libs/popper/popper.js"></script>
@@ -135,6 +152,17 @@
     <script src="./src/assets/frontend/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     <script src="./src/assets/frontend/assets/vendor/libs/plyr/plyr.js"></script>
     <script src="./src/assets/frontend/assets/js/extended-ui-media-player.js"></script>
+
+    <!-- Using script tags to include the assets -->
+    <script src="./src/assets/frontend/assets/vendor/libs/@form-validation/popular.js"></script>
+    <script src="./src/assets/frontend/assets/vendor/libs/@form-validation/bootstrap5.js"></script>
+    <script src="./src/assets/frontend/assets/vendor/libs/@form-validation/auto-focus.js"></script>
+    <script src="./src/assets/frontend/assets/js/pages-auth-multisteps.js"></script>
+    <script src="./src/assets/frontend/assets/js/pages-auth.js"></script>
+    <script src="./src/assets/frontend/assets/vendor/libs/cleavejs/cleave.js"></script>
+    <script src="./src/assets/frontend/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+    <script src="./src/assets/frontend/assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+    <script src="./src/assets/frontend/assets/vendor/libs/select2/select2.js"></script>
 
     <!-- Main JS -->
     <script src="./src/assets/frontend/assets/js/main.js"></script>

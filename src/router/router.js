@@ -2,8 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Parent components
 import FrontendLayout from '../components/layout/Front.vue';
-import BatchLayout from "../components/layout/batch.vue";
+import BatchLayout from "../components/layout/Batch.vue";
 import ProfileLayout from '../components/layout/Profile.vue';
+import Auth from '../components/layout/Authen.vue';
+
+// Authentication
+import login from "../components/auth/login.vue";
+import register from "../components/auth/register.vue";
 
 // Frontend components
 import Main from '../components/router/frontend/pages/main.vue';
@@ -30,6 +35,22 @@ const routes = [
   {
     // Frontend layout routes
     path: '/',
+    component: Auth,
+    children: [
+      {
+        path: '',  // This will match "/frontend" and load Main.vue
+        component: login,
+      },
+      {
+        path: 'register',  // This will match "/frontend" and load Main.vue
+        component: register,
+      },
+     
+    ],
+  },
+  {
+    // Frontend layout routes
+    path: '/home',
     component: FrontendLayout,
     children: [
       {

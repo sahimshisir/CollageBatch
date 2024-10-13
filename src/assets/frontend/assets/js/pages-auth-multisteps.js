@@ -178,10 +178,24 @@ document.addEventListener('DOMContentLoaded', function (e) {
               }
             }
           },
-          multiStepsAddress: {
+          multiStepsLastName: {
             validators: {
               notEmpty: {
-                message: 'Please enter your address'
+                message: 'Please enter last name'
+              }
+            }
+          },
+          multiStepsMobile: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your Number'
+              }
+            }
+          },
+          birthdate: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your Date of Birth'
               }
             }
           }
@@ -198,8 +212,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
               switch (field) {
                 case 'multiStepsFirstName':
                   return '.col-sm-6';
+                case 'multiStepsLastName':
+                  return '.col-sm-6';
                 case 'multiStepsAddress':
-                  return '.col-md-12';
+                  return '.col-md-6';
+                case 'birthdate':
+                  return '.col-md-6';
                 default:
                   return '.row';
               }
@@ -216,10 +234,24 @@ document.addEventListener('DOMContentLoaded', function (e) {
       // Social links
       const multiSteps3 = FormValidation.formValidation(stepsValidationFormStep3, {
         fields: {
-          multiStepsCard: {
+          semister: {
             validators: {
               notEmpty: {
-                message: 'Please enter card number'
+                message: 'Please select your semister'
+              }
+            }
+          },
+          btebroll: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your BTEB roll'
+              }
+            }
+          },
+          session: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your session'
               }
             }
           }
@@ -234,11 +266,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
               // field is the field name
               // ele is the field element
               switch (field) {
-                case 'multiStepsCard':
-                  return '.col-md-12';
+                case 'semister':
+                  return '.col-md-4';
+                case 'btebroll':
+                  return '.col-md-4';
+                case 'session':
+                  return '.col-md-4';
 
                 default:
-                  return '.col-dm-6';
+                  return '.col-dm-4';
               }
             }
           }),

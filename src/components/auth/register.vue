@@ -1,6 +1,6 @@
 <template>
   <!-- <loader v-if="isLoading"></loader> -->
-  <div class="authentication-inner row">
+  <div class="authentication-inner row bg_position">
     <!-- Left Text -->
     <div
       class="d-none d-lg-flex col-lg-4 align-items-center justify-content-center p-5 auth-cover-bg-color position-relative auth-multisteps-bg-height">
@@ -59,8 +59,8 @@
                   ><i class="ti ti-file-text ti-sm"></i
                 ></span>
                 <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Billing</span>
-                  <span class="bs-stepper-subtitle">Payment Details</span>
+                  <span class="bs-stepper-title">Another Info</span>
+                  <span class="bs-stepper-subtitle">Account Details</span>
                 </span>
               </button>
             </div>
@@ -83,7 +83,7 @@
                       name="multiStepsUsername"
                       id="multiStepsUsername"
                       class="form-control"
-                      placeholder="johndoe" />
+                      placeholder="Name" />
                   </div>
                   <div class="col-sm-6">
                     <label class="form-label" for="multiStepsEmail"
@@ -94,7 +94,7 @@
                       name="multiStepsEmail"
                       id="multiStepsEmail"
                       class="form-control"
-                      placeholder="john.doe@email.com"
+                      placeholder="Email"
                       aria-label="john.doe" />
                   </div>
                   <div class="col-sm-6 form-password-toggle">
@@ -148,18 +148,7 @@
                       </span>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <label class="form-label" for="multiStepsURL"
-                      >Profile Link</label
-                    >
-                    <input
-                      type="text"
-                      name="multiStepsURL"
-                      id="multiStepsURL"
-                      class="form-control"
-                      placeholder="johndoe/profile"
-                      aria-label="johndoe" />
-                  </div>
+
                   <div class="col-12 d-flex justify-content-between mt-4">
                     <button class="btn btn-label-secondary btn-prev" disabled>
                       <i class="ti ti-arrow-left ti-xs me-sm-1 me-0"></i>
@@ -213,56 +202,26 @@
                       >Mobile</label
                     >
                     <div class="input-group">
-                      <span class="input-group-text">US (+1)</span>
+                      <span class="input-group-text">BD (+880)</span>
                       <input
                         type="text"
                         id="multiStepsMobile"
                         name="multiStepsMobile"
                         class="form-control multi-steps-mobile"
-                        placeholder="202 555 0111" />
+                        placeholder="1*********" />
                     </div>
                   </div>
-                  <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsPincode"
-                      >Pincode</label
+                  <div class="col-md-6">
+                    <label class="form-label" for="formtabs-birthdate"
+                      >Birth Date</label
                     >
                     <input
-                      type="text"
-                      id="multiStepsPincode"
-                      name="multiStepsPincode"
-                      class="form-control multi-steps-pincode"
-                      placeholder="Postal Code"
-                      maxlength="6" />
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label" for="multiStepsAddress"
-                      >Address</label
-                    >
-                    <input
-                      type="text"
-                      id="multiStepsAddress"
-                      name="multiStepsAddress"
-                      class="form-control"
-                      placeholder="Address" />
-                  </div>
-                  <div class="col-md-12">
-                    <label class="form-label" for="multiStepsArea"
-                      >Landmark</label
-                    >
-                    <input
-                      type="text"
-                      id="multiStepsArea"
-                      name="multiStepsArea"
-                      class="form-control"
-                      placeholder="Area/Landmark" />
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsCity">City</label>
-                    <input
-                      type="text"
-                      id="multiStepsCity"
-                      class="form-control"
-                      placeholder="Jackson" />
+                      type="date"
+                      id="formtabs-birthdate"
+                      name="birthdate"
+                      class="form-control dob-picker flatpickr-input active"
+                      placeholder="DD-MM-YYYY"
+                      readonly="readonly"/>
                   </div>
 
                   <div class="col-12 d-flex justify-content-between mt-4">
@@ -288,60 +247,63 @@
               </div>
               <!-- Billing Links -->
               <div id="billingLinksValidation" class="content">
-                <div class="content-header">
-                  <h3 class="mb-1">Select Plan</h3>
-                  <p>Select plan as per your requirement</p>
+                <div class="content-header con_heder">
+                  <h5 class="">Select Department</h5>
                 </div>
                 <!-- Custom plan options -->
                 <div class="row gap-md-0 gap-3 my-4">
-                  <div class="col-md">
-                    <div class="form-check custom-option custom-option-icon">
+                  <div class="col-md-6">
+                    <div
+                      class="form-check custom-option custom-option-icon mb-4">
                       <label
                         class="form-check-label custom-option-content"
                         for="basicOption">
                         <span class="custom-option-body">
-                          <span class="custom-option-title fs-4 mb-1"
-                            >Basic</span
+                          <i class="fa-solid fa-computer"></i>
+                          <span class="custom-option-title fs-5 mb-1">
+                            Computer Technology</span
                           >
-                          <small class="fs-6"
-                            >A simple start for start ups & Students</small
-                          >
-                          <span class="d-flex justify-content-center">
-                            <sup class="text-primary fs-6 lh-1 mt-3">$</sup>
-                            <span class="fw-medium fs-2 text-primary">0</span>
-                            <sub class="lh-1 fs-6 mt-auto mb-2 text-muted"
-                              >/month</sub
-                            >
-                          </span>
                         </span>
                         <input
                           name="customRadioIcon"
                           class="form-check-input"
                           type="radio"
                           value=""
-                          id="basicOption" />
+                          id="basicOption" checked  />
                       </label>
                     </div>
                   </div>
-                  <div class="col-md">
+                  <div class="col-md-6">
+                    <div
+                      class="form-check custom-option custom-option-icon mb-4">
+                      <label
+                        class="form-check-label custom-option-content"
+                        for="Option">
+                        <span class="custom-option-body">
+                          <i class="fa-solid fa-compass-drafting"></i>
+                          <span class="custom-option-title fs-5 mb-1"
+                            >Civil Technology</span
+                          >
+                        </span>
+                        <input
+                          name="customRadioIcon"
+                          class="form-check-input"
+                          type="radio"
+                          value=""
+                          id="Option" />
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
                     <div class="form-check custom-option custom-option-icon">
                       <label
                         class="form-check-label custom-option-content"
                         for="standardOption">
                         <span class="custom-option-body">
-                          <span class="custom-option-title fs-4 mb-1"
-                            >Standard</span
+                          <i class="fa-solid fa-bolt-lightning"></i>
+                          <span class="custom-option-title fs-5 mb-1"
+                            >Electrical Technology</span
                           >
-                          <small class="fs-6"
-                            >For small to medium businesses</small
-                          >
-                          <span class="d-flex justify-content-center">
-                            <sup class="text-primary fs-6 lh-1 mt-3">$</sup>
-                            <span class="fw-medium fs-2 text-primary">99</span>
-                            <sub class="lh-1 fs-6 mt-auto mb-2 text-muted"
-                              >/month</sub
-                            >
-                          </span>
                         </span>
                         <input
                           name="customRadioIcon"
@@ -349,29 +311,20 @@
                           type="radio"
                           value=""
                           id="standardOption"
-                          checked />
+                          />
                       </label>
                     </div>
                   </div>
-                  <div class="col-md">
+                  <div class="col-md-6">
                     <div class="form-check custom-option custom-option-icon">
                       <label
                         class="form-check-label custom-option-content"
                         for="enterpriseOption">
                         <span class="custom-option-body">
-                          <span class="custom-option-title fs-4 mb-1"
-                            >Enterprise</span
+                          <i class="fa-solid fa-gears"></i>
+                          <span class="custom-option-title fs-5 mb-1"
+                            >Mechanical Technology</span
                           >
-                          <small class="fs-6"
-                            >Solution for enterprise & organizations</small
-                          >
-                          <span class="d-flex justify-content-center">
-                            <sup class="text-primary fs-6 lh-1 mt-3">$</sup>
-                            <span class="fw-medium fs-2 text-primary">499</span>
-                            <sub class="lh-1 fs-6 mt-auto mb-2 text-muted"
-                              >/year</sub
-                            >
-                          </span>
                         </span>
                         <input
                           name="customRadioIcon"
@@ -384,76 +337,53 @@
                   </div>
                 </div>
                 <!--/ Custom plan options -->
-                <div class="content-header mb-4">
-                  <h3 class="mb-1">Payment Information</h3>
-                  <p>Enter your card information</p>
+                <div class="content-header mb-2">
+                  <h5 class="mb-1">Batch Information</h5>
                 </div>
                 <!-- Credit Card Details -->
                 <div class="row g-3">
-                  <div class="col-md-12">
-                    <label class="form-label w-100" for="multiStepsCard"
-                      >Card Number</label
+                  <div class="col-md-4">
+                    <label class="form-label" for="collapsible-state"
+                      >Your Semister</label
                     >
-                    <div class="input-group input-group-merge">
-                      <input
-                        id="multiStepsCard"
-                        class="form-control multi-steps-card"
-                        name="multiStepsCard"
-                        type="text"
-                        placeholder="1356 3215 6548 7898"
-                        aria-describedby="multiStepsCardImg" />
-                      <span
-                        class="input-group-text cursor-pointer"
-                        id="multiStepsCardImg"
-                        ><span class="card-type"></span
-                      ></span>
-                    </div>
+                    <select
+                      id="collapsible-state"
+                      class="select2 form-select"
+                      name="semister"
+                      data-allow-clear="true">
+                      <option value="">Select Semister</option>
+                      <option value="1">1st semister</option>
+                      <option value="2">2nd semister</option>
+                      <option value="3">3rd semister</option>
+                      <option value="4">4th semister</option>
+                      <option value="5">5th semister</option>
+                      <option value="6">6th semister</option>
+                      <option value="7">7th semister</option>
+                      <option value="8">8th semister</option>
+                     
+                    </select>
                   </div>
-                  <div class="col-md-5">
+                  <div class="col-md-4">
                     <label class="form-label" for="multiStepsName"
-                      >Name On Card</label
+                      >BTEB Roll</label
                     >
                     <input
-                      type="text"
+                      type="number"
                       id="multiStepsName"
                       class="form-control"
-                      name="multiStepsName"
-                      placeholder="John Doe" />
+                      name="btebroll"
+                      placeholder="roll" />
                   </div>
                   <div class="col-6 col-md-4">
-                    <label class="form-label" for="multiStepsExDate"
-                      >Expiry Date</label
-                    >
+                    <label class="form-label" for="session">Your Session</label>
                     <input
                       type="text"
-                      id="multiStepsExDate"
-                      class="form-control multi-steps-exp-date"
-                      name="multiStepsExDate"
-                      placeholder="MM/YY" />
+                      id="session"
+                      class="form-control"
+                      name="session"
+                      placeholder="2020-2021" />
                   </div>
-                  <div class="col-6 col-md-3">
-                    <label class="form-label" for="multiStepsCvv"
-                      >CVV Code</label
-                    >
-                    <div class="input-group input-group-merge">
-                      <input
-                        type="text"
-                        id="multiStepsCvv"
-                        class="form-control multi-steps-cvv"
-                        name="multiStepsCvv"
-                        maxlength="3"
-                        placeholder="654" />
-                      <span
-                        class="input-group-text cursor-pointer"
-                        id="multiStepsCvvHelp"
-                        ><i
-                          class="ti ti-help text-muted"
-                          data-bs-toggle="tooltip"
-                          data-bs-placement="top"
-                          title="Card Verification Value"></i
-                      ></span>
-                    </div>
-                  </div>
+
                   <div
                     class="col-12 d-flex justify-content-between mt-4"
                     @click.prevent="goToPreviousStep">
@@ -481,19 +411,20 @@
   </div>
 </template>
 <script>
+import { readonly } from 'vue';
+
 //  import loader from '../../components/include/Loader.vue';
 export default {
-  //   components: {
+  // components: {
   //   loader
   // },
 
   data() {
     return {
-      // add any necessary data to track the current step
       currentStep: 1,
       isPasswordVisible: false,
       isConfirmPasswordVisible: false,
-      // isLoading: true,
+      // isLoading: true, // Uncomment if needed
     };
   },
   methods: {
@@ -511,9 +442,51 @@ export default {
     },
   },
   mounted() {
+    // Hide loader after content is "loaded"
     setTimeout(() => {
-      this.isLoading = false; // Hide loader after content is "loaded"
+      this.isLoading = false;
     }, 2000);
+
+    // Initialize Flatpickr after component is mounted
+    flatpickr("#formtabs-birthdate", {
+      dateFormat: "d-m-Y",
+      altInput: true,
+      // altFormat: "Y-m-d",
+      altFormat: "j F,Y",
+      
+    });
   },
 };
 </script>
+
+<style>
+.form-control.dob-picker:focus {
+  border-color: #0569d4;
+  outline: none;
+}
+
+.flatpickr-input[readonly] {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.flatpickr-calendar {
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.today {
+  background-color: #0469d6;
+  color: white;
+}
+
+.flatpickr-day:hover {
+  background-color: #0056b3;
+  color: white;
+}
+.con_heder {
+  font-size: 20px !important;
+}
+</style>

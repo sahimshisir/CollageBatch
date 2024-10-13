@@ -1,0 +1,193 @@
+
+/* emoji css start */
+.emoji-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Style the emoji picker */
+.emoji-picker {
+  position: absolute;
+  z-index: 100;
+  top: 45%;
+  right: -10%;
+}
+
+/* Adjust textarea style if needed */
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* emoji css end */
+.mySwiper {
+  display: flex;
+  max-width: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.slide-content {
+  position: relative;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+img {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* span {
+  font-weight: bold;
+  font-size: 18px;
+} */
+
+.post-area {
+  resize: none;
+  margin-left: 40px;
+  background: transparent;
+  width: 90%;
+  height: 120px;
+  margin-bottom: 20px;
+}
+.post-area2 {
+  resize: none;
+  background: transparent;
+  width: 90%;
+  /* height: 120px; */
+  margin-bottom: 20px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.post-area::placeholder {
+  font-size: 20px !important;
+  padding-top: 0 !important;
+}
+
+.modal-cmt-footer {
+  padding: 0.25rem 1.5rem 1.25rem;
+}
+
+.like {
+  margin-top: -10px !important;
+}
+
+.cmt-img {
+  width: 45px !important;
+  height: 45px !important;
+}
+
+.timer {
+  display: block;
+  margin-top: -15px;
+  font-size: 10px;
+}
+
+.comment {
+  display: block;
+  margin-top: -10px;
+}
+
+.comment_reaction {
+  display: block;
+  margin-top: -4px;
+}
+
+#my-card {
+  width: 24%;
+}
+
+.list-menu {
+  list-style-type: none;
+  line-height: 30px;
+}
+
+/* CSS to hide scrollbar */
+.no-scrollbar {
+  overflow: hidden;
+  /* Prevents scrollbars */
+}
+
+/* Optional: If you still need scrollable content but hidden scrollbar */
+.no-scrollbar {
+  overflow: auto;
+  /* Enables scrolling but hides the scrollbar */
+  -ms-overflow-style: none;
+  /* For IE and Edge */
+  scrollbar-width: none;
+  /* For Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* For Chrome, Safari, and other WebKit browsers */
+}
+
+.post-button-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.post-button {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.8s ease;
+}
+
+.post-button:hover {
+  transform: rotate(360deg);
+}
+
+#my-strictly-unique-vue-upload-multiple-image {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+/* h1,
+h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+} */

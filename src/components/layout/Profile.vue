@@ -16,12 +16,15 @@
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
-          <router-view></router-view>
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <batchHeader />
+            <router-view></router-view>
+          </div>
 
           <!-- / Content -->
 
           <!-- Footer -->
-          <footar/>
+          <footar />
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
@@ -29,7 +32,6 @@
         <!-- Content wrapper -->
       </div>
       <!-- / Layout page -->
-     
     </div>
 
     <!-- Overlay -->
@@ -41,30 +43,23 @@
 </template>
 
 <script>
-import sidebar from "../frontend/include/sidebar.vue";
-import Header from "../frontend/include/topbar.vue";
-import footar from '../frontend/include/footer.vue';
+import sidebar from "../frontend/pages/Profile/include/sidecard.vue";
+import Header from "../frontend/pages/Profile/include/topbar.vue";
+import footar from "../frontend/include/footer.vue";
+import batchHeader from "../frontend/pages/Profile/include/header.vue";
 
 export default {
-components:{
-  Header,
-  sidebar,
-  footar,
-  
-},
-mounted() {
+  components: {
+    Header,
+    sidebar,
+    footar,
+    batchHeader,
+  },
+  mounted() {
     import("../../assets/frontend/assets/js/dashboards-analytics.js");
-      import("../../assets/frontend/assets/js/main.js");
-      import("../../assets/frontend/assets/js/extended-ui-media-player.js");
-
-      import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.css");
-      import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.js");
-      import("../../assets/frontend/assets/vendor/libs/select2/select2.js");
-      import("../../assets/frontend/assets/js/forms-selects.js");
-      import("../../assets/frontend/assets/css/style.css");
-
-     
+    import("../../assets/frontend/assets/js/main.js");
+    import("../../assets/frontend/assets/js/extended-ui-media-player.js");
+    import("../../../src/assets/frontend/assets/js/extended-ui-media-player")
   },
 };
 </script>
-

@@ -1,7 +1,7 @@
 <template>
-      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="#" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -28,7 +28,7 @@
                     fill="#7367F0" />
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+              <span class="app-brand-text demo menu-text fw-bold">Warriors</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -40,137 +40,94 @@
           <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
-            <!-- Dashboards -->
-            <li class="menu-item active open">
+            <!-- All Post -->
+            <li class="menu-item active">
+              <a href="#" class="menu-link">
+                <i class="fa-regular fa-house menu-icon fw-bold"></i>
+                <div data-i18n="Home">Home</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Home">About Us</div>
+              </a>
+            </li>
+            <li class="menu-item open">
+              <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Batch">Batch</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-mail"></i>
+                <div data-i18n="Members">Members</div>
+              </a>
+            </li>
+            
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
+                <div data-i18n="Courses">Courses</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item active">
-                  <a href="index.html" class="menu-link">
-                    <div data-i18n="Analytics">Analytics</div>
+                <li class="menu-item">
+                  <a href="#" class="menu-link">
+                    <div data-i18n="Web Development">Web Development</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="dashboards-crm.html" class="menu-link">
-                    <div data-i18n="CRM">CRM</div>
+                  <a href="#" class="menu-link">
+                    <div data-i18n="Web Design">Web Design</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="app-ecommerce-dashboard.html" class="menu-link">
-                    <div data-i18n="eCommerce">eCommerce</div>
+                  <a href="#" class="menu-link">
+                    <div data-i18n="Graphic Design">Graphic Design</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="app-logistics-dashboard.html" class="menu-link">
-                    <div data-i18n="Logistics">Logistics</div>
+                  <a href="#" class="menu-link">
+                    <div data-i18n="UI/UX Design">UI/UX Design</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="app-academy-dashboard.html" class="menu-link">
-                    <div data-i18n="Academy">Academy</div>
+                  <a href="#" class="menu-link">
+                    <div data-i18n="Digital Marketting">Digital Marketting</div>
                   </a>
                 </li>
               </ul>
             </li>
 
-            <!-- Layouts -->
+
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-layout-sidebar"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Event">Events</div>
               </a>
-
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="layouts-collapsed-menu.html" class="menu-link">
-                    <div data-i18n="Collapsed menu">Collapsed menu</div>
+                  <a href="#" class="menu-link">
+                    <div data-i18n="Event">Event</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-content-navbar.html" class="menu-link">
-                    <div data-i18n="Content navbar">Content navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-content-navbar-with-sidebar.html" class="menu-link">
-                    <div data-i18n="Content nav + Sidebar">Content nav + Sidebar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="../horizontal-menu-template" class="menu-link" target="_blank">
-                    <div data-i18n="Horizontal">Horizontal</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
+                  <a href="#" class="menu-link">
+                    <div data-i18n="Event Details">Event Details</div>
                   </a>
                 </li>
               </ul>
             </li>
 
-            <!-- Front Pages -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-files"></i>
-                <div data-i18n="Front Pages">Front Pages</div>
+              <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Contact Us">Contact Us</div>
               </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="../front-pages/landing-page.html" class="menu-link" target="_blank">
-                    <div data-i18n="Landing">Landing</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="../front-pages/pricing-page.html" class="menu-link" target="_blank">
-                    <div data-i18n="Pricing">Pricing</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="../front-pages/payment-page.html" class="menu-link" target="_blank">
-                    <div data-i18n="Payment">Payment</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="../front-pages/checkout-page.html" class="menu-link" target="_blank">
-                    <div data-i18n="Checkout">Checkout</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="../front-pages/help-center-landing.html" class="menu-link" target="_blank">
-                    <div data-i18n="Help Center">Help Center</div>
-                  </a>
-                </li>
-              </ul>
             </li>
 
-         
-          
-           
-           
           </ul>
         </aside>
 </template>

@@ -7,7 +7,175 @@
     <div class="row">
       <!-- Video Player -->
       <div class="col-12 col-lg-8 mb-4">
-        <div class="card">
+        <div class="card mt-4">
+          <div class="card-header">
+            <div class="d-flex">
+              <div class="avatar me-3">
+                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
+              </div>
+              <div>
+                <h5>Alex leman</h5>
+                <span class="timer">10h ago</span>
+              </div>
+            </div>
+            <p class="mt-2 p-0">
+              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
+              aspernatur assumenda architecto consequatur ratione earum id, sint labore
+              officiis quo aperiam vero eligendi!
+            </p>
+          </div>
+
+          <div class="card-body">
+            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+              id="plyr-video-player" playsinline controls>
+              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex" style="justify-content: space-around">
+              <button class="btn border-0">
+                <i class="fa-regular fa-heart me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
+                <i class="fa-regular fa-comment me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0">
+                <i class="fa-solid fa-share me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-header">
+            <div class="d-flex">
+              <div class="avatar me-3">
+                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
+              </div>
+              <div>
+                <h5>Alex leman</h5>
+                <span class="timer">10h ago</span>
+              </div>
+            </div>
+            <p class="mt-2 p-0">
+              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
+              aspernatur assumenda architecto consequatur ratione earum id, sint labore
+              officiis quo aperiam vero eligendi!
+            </p>
+          </div>
+
+          <div class="card-body">
+            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+              id="plyr-video-player" playsinline controls>
+              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex" style="justify-content: space-around">
+              <button class="btn border-0">
+                <i class="fa-regular fa-heart me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
+                <i class="fa-regular fa-comment me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0">
+                <i class="fa-solid fa-share me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-header">
+            <div class="d-flex">
+              <div class="avatar me-3">
+                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
+              </div>
+              <div>
+                <h5>Alex leman</h5>
+                <span class="timer">10h ago</span>
+              </div>
+            </div>
+            <p class="mt-2 p-0">
+              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
+              aspernatur assumenda architecto consequatur ratione earum id, sint labore
+              officiis quo aperiam vero eligendi!
+            </p>
+          </div>
+
+          <div class="card-body">
+            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+              id="plyr-video-player" playsinline controls>
+              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex" style="justify-content: space-around">
+              <button class="btn border-0">
+                <i class="fa-regular fa-heart me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
+                <i class="fa-regular fa-comment me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0">
+                <i class="fa-solid fa-share me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-header">
+            <div class="d-flex">
+              <div class="avatar me-3">
+                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
+              </div>
+              <div>
+                <h5>Alex leman</h5>
+                <span class="timer">10h ago</span>
+              </div>
+            </div>
+            <p class="mt-2 p-0">
+              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
+              aspernatur assumenda architecto consequatur ratione earum id, sint labore
+              officiis quo aperiam vero eligendi!
+            </p>
+          </div>
+
+          <div class="card-body">
+            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+              id="plyr-video-player" playsinline controls>
+              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex" style="justify-content: space-around">
+              <button class="btn border-0">
+                <i class="fa-regular fa-heart me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
+                <i class="fa-regular fa-comment me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+              <button class="btn border-0">
+                <i class="fa-solid fa-share me-1 fs-4"></i>
+                <span style="font-size: 12px">12k</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-4">
           <div class="card-header">
             <div class="d-flex">
               <div class="avatar me-3">
@@ -50,91 +218,95 @@
           </div>
         </div>
       </div>
-
-      <div class="col-12 col-lg-4">
-        <div class="row">
-          <div id="my-card" class="card position-fixed">
-            <div class="card-body">
-              <h4>Categories</h4>
-              <div class="border-bottom"></div>
-              <p>Web Development</p>
-              <p>Web Development</p>
-              <p>Web Development</p>
-              <p>Web Development</p>
-              <p>Web Development</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" style="margin-top: 19rem">
-          <div id="my-card" class="card position-fixed">
-            <div class="card-body">
-              <h4>Categories</h4>
-              <div class="border-bottom"></div>
-              <p>Web Development</p>
-              <p>Web Development</p>
-              <p>Web Development</p>
-              <p>Web Development</p>
-              <p>Web Development</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-8 mb-4">
-        <div class="card">
-          <h5 class="card-header">Video</h5>
-          <div class="card-body">
-            <img class="w-100" src="../../../assets/frontend/assets/img/backgrounds/6.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-8 mb-4">
-        <div class="card">
-          <h5 class="card-header">Video</h5>
-          <div class="card-body">
-            <video class="w-100" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-              id="plyr-video-player" playsinline controls>
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-8 mb-4">
-        <div class="card">
-          <h5 class="card-header">Video</h5>
-          <div class="card-body">
-            <img class="h-50 w-100" src="../../../assets/frontend/assets/img/elements/1.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-8 mb-5">
-        <div class="card">
-          <h5 class="card-header">Video</h5>
-          <div class="card-body">
-            <img class="h-50 w-100" src="../../../assets/frontend/assets/img/ecommerce-images/product-10.png" alt="" />
-          </div>
-        </div>
-      </div>
       <!-- /Video Player -->
 
-      <!-- Audio Player -->
-      <!-- <div class="col-12">
-        <div class="card">
-          <h5 class="card-header">Audio</h5>
+      <!-- right sidebar -->
+      <div class="col-12 col-lg-4 mt-4 d-none d-lg-block">
+        <div class="card mb-4">
           <div class="card-body">
-            <audio class="w-100" id="plyr-audio-player" controls>
-              <source
-                src="../../../assets/frontend/assets/audio/Water_Lily.mp3"
-                type="audio/mp3" />
-            </audio>
+            <h4 class="text-white fw-bold cat-head">
+              <i class="fa-solid fa-layer-group me-2"></i> Categories
+            </h4>
+            <div class="border-bottom mb-3"></div>
+            <div class="category-item list-unstyled">
+              <li>
+                <a class="badge bg-body text-dark rounded-pill" href="#"><i class="fa-solid fa-globe me-2"></i>Web
+                  Developement</a>
+              </li>
+              <li>
+                <a class="badge bg-body text-dark rounded-pill" href="#"><i class="fa-solid fa-globe me-2"></i>Web
+                  Design</a>
+              </li>
+              <li>
+                <a class="badge bg-body text-dark rounded-pill" href="#"><i class="fa-solid fa-globe me-2"></i>Graphic
+                  Design</a>
+              </li>
+              <li>
+                <a class="badge bg-body text-dark rounded-pill" href="#"><i class="fa-solid fa-globe me-2"></i>Digital
+                  Marketting</a>
+              </li>
+              <li>
+                <a class="badge bg-body text-dark rounded-pill" href="#"><i class="fa-solid fa-globe me-2"></i>UI/UX
+                  Design</a>
+              </li>
+            </div>
           </div>
         </div>
-      </div> -->
-      <!-- /Audio Player -->
+        <!-- Popular Post -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="text-white fw-bold cat-head">
+              <i class="fa-solid fa-arrow-trend-up me-2"></i> Popular Post
+            </h4>
+            <div class="border-bottom mb-3"></div>
+            <!-- post -->
+            <a href="#">
+              <div class="d-flex align-items-center mb-3">
+                <div class="post-img me-3">
+                  <img class="" src="../../../assets/frontend/assets/img/avatars/1.png" alt="" />
+                </div>
+                <div class="post-con">
+                  <p class="mb-1">12 Jan, 2024</p>
+                  <h5>All that is wrong codding in the field of apprentices</h5>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="d-flex align-items-center mb-3">
+                <div class="post-img me-3">
+                  <img class="" src="../../../assets/frontend/assets/img/avatars/1.png" alt="" />
+                </div>
+                <div class="post-con">
+                  <p class="mb-1">12 Jan, 2024</p>
+                  <h5>All that is wrong codding in the field of apprentices</h5>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="d-flex align-items-center mb-3">
+                <div class="post-img me-3">
+                  <img class="" src="../../../assets/frontend/assets/img/avatars/1.png" alt="" />
+                </div>
+                <div class="post-con">
+                  <p class="mb-1">12 Jan, 2024</p>
+                  <h5>All that is wrong codding in the field of apprentices</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- copyright  -->
+        <div class="copyright d-flex justify-content-evenly align-items-center fs-tiny">
+          <a href="#">About</a>
+          <a href="#">Terms Of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+        <!-- fotter -->
+        <div class="fotter text-center mt-1">
+          <p class="text-muted fs-tiny"><i class="fa-regular fa-copyright me-1"></i>All right reserved by SahimShishir</p>
+        </div>
+      </div>
     </div>
 
     <div class="modal fade" id="comment" tabindex="-1" aria-hidden="true">
@@ -224,6 +396,7 @@
               <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
             </div>
             <input class="form-control mt-2 rounded-pill w-75" placeholder="Coment as ashraful" type="text" />
+            <!-- <textarea name="" class="form-control mt-2 rounded-pill w-75" placeholder="Comment as ashraful" id=""></textarea> -->
             <button type="submit" class="btn">
               <i class="fa-solid fa-paper-plane me-1"></i>Send
             </button>
@@ -302,7 +475,9 @@
                 </label>
                 <!-- post button -->
                 <button :disabled="isPostDisabled" type="submit"
-                  class=" badge btn mt-2 text-black fw-bold rounded-pill bg-dark fs-6 badge">Post</button>
+                  class="badge btn mt-2 text-black fw-bold rounded-pill bg-dark fs-6 badge">
+                  Post
+                </button>
                 <!-- Upload Button -->
                 <!-- <button @click="submitImages" :disabled="!files.length">Upload Images</button> -->
               </div>
@@ -366,7 +541,7 @@ export default {
   computed: {
     isPostDisabled() {
       return this.text.trim().length === 0;
-    }
+    },
   },
 
   mounted() {
@@ -428,3 +603,21 @@ export default {
 };
 </script>
 
+<style>
+.category-item {
+  line-height: 45px;
+}
+
+.category-item li a {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cat-head {
+  letter-spacing: 1px;
+}
+
+.post-con {
+  text-align: ju;
+}
+</style>

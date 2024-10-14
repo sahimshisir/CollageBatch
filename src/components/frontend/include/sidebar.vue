@@ -50,7 +50,7 @@
             <li class="menu-item">
               <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Home">About Us</div>
+                <div data-i18n="About Us">About Us</div>
               </a>
             </li>
             <li class="menu-item open">

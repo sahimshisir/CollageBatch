@@ -75,37 +75,31 @@
                 </div>
                 <div class="row g-3">
                   <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsUsername"
-                      >Username</label
-                    >
+                    <label class="form-label" for="username">Username</label>
                     <input
                       type="text"
-                      name="multiStepsUsername"
+                      v-model="register.username"
                       id="multiStepsUsername"
                       class="form-control"
                       placeholder="Name" />
                   </div>
                   <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsEmail"
-                      >Email</label
-                    >
+                    <label class="form-label" for="email">Email</label>
                     <input
                       type="email"
-                      name="multiStepsEmail"
+                      v-model="register.email"
                       id="multiStepsEmail"
                       class="form-control"
                       placeholder="Email"
                       aria-label="john.doe" />
                   </div>
                   <div class="col-sm-6 form-password-toggle">
-                    <label class="form-label" for="multiStepsPass"
-                      >Password</label
-                    >
+                    <label class="form-label" for="password">Password</label>
                     <div class="input-group input-group-merge">
                       <input
                         :type="isPasswordVisible ? 'text' : 'password'"
                         id="multiStepsPass"
-                        name="multiStepsPass"
+                        v-model="register.password"
                         class="form-control"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="multiStepsPass2" />
@@ -176,52 +170,46 @@
                 </div>
                 <div class="row g-3">
                   <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsFirstName"
+                    <label class="form-label" for="first_name"
                       >First Name</label
                     >
                     <input
                       type="text"
                       id="multiStepsFirstName"
-                      name="multiStepsFirstName"
+                      v-model="register.first_name"
                       class="form-control"
                       placeholder="John" />
                   </div>
                   <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsLastName"
-                      >Last Name</label
-                    >
+                    <label class="form-label" for="last_name">Last Name</label>
                     <input
                       type="text"
                       id="multiStepsLastName"
-                      name="multiStepsLastName"
+                      v-model="register.last_name"
                       class="form-control"
                       placeholder="Doe" />
                   </div>
                   <div class="col-sm-6">
-                    <label class="form-label" for="multiStepsMobile"
-                      >Mobile</label
-                    >
+                    <label class="form-label" for="phone">Mobile</label>
                     <div class="input-group">
                       <span class="input-group-text">BD (+880)</span>
                       <input
                         type="text"
                         id="multiStepsMobile"
-                        name="multiStepsMobile"
+                        v-model="register.phone"
                         class="form-control multi-steps-mobile"
                         placeholder="1*********" />
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label" for="formtabs-birthdate"
-                      >Birth Date</label
-                    >
+                    <label class="form-label" for="birthdate">Birth Date</label>
                     <input
                       type="date"
                       id="formtabs-birthdate"
-                      name="birthdate"
+                      v-model="register.birthdate"
                       class="form-control dob-picker flatpickr-input active"
                       placeholder="DD-MM-YYYY"
-                      readonly="readonly"/>
+                      readonly="readonly" />
                   </div>
 
                   <div class="col-12 d-flex justify-content-between mt-4">
@@ -260,16 +248,16 @@
                         for="basicOption">
                         <span class="custom-option-body">
                           <i class="fa-solid fa-computer"></i>
-                          <span class="custom-option-title fs-5 mb-1">
-                            Computer Technology</span
+                          <span class="custom-option-title fs-5 mb-1"
+                            >Computer Technology</span
                           >
                         </span>
                         <input
-                          name="customRadioIcon"
+                          v-model="register.department"
                           class="form-check-input"
                           type="radio"
-                          value=""
-                          id="basicOption" checked  />
+                          value="computer"
+                          id="basicOption" />
                       </label>
                     </div>
                   </div>
@@ -286,10 +274,10 @@
                           >
                         </span>
                         <input
-                          name="customRadioIcon"
+                          v-model="register.department"
                           class="form-check-input"
                           type="radio"
-                          value=""
+                          value="civil"
                           id="Option" />
                       </label>
                     </div>
@@ -306,12 +294,11 @@
                           >
                         </span>
                         <input
-                          name="customRadioIcon"
+                          v-model="register.department"
                           class="form-check-input"
                           type="radio"
-                          value=""
-                          id="standardOption"
-                          />
+                          value="electrical"
+                          id="standardOption" />
                       </label>
                     </div>
                   </div>
@@ -327,10 +314,10 @@
                           >
                         </span>
                         <input
-                          name="customRadioIcon"
+                          v-model="register.department"
                           class="form-check-input"
                           type="radio"
-                          value=""
+                          value="mechanical"
                           id="enterpriseOption" />
                       </label>
                     </div>
@@ -340,29 +327,28 @@
                 <div class="content-header mb-2">
                   <h5 class="mb-1">Batch Information</h5>
                 </div>
-                <!-- Credit Card Details -->
+                <!-- Batch Information -->
                 <div class="row g-3">
                   <div class="col-md-4">
-                    <label class="form-label" for="collapsible-state"
-                      >Your Semister</label
+                    <label class="form-label" for="semister"
+                      >Your Semester</label
                     >
                     <select
-                      id="collapsible-state"
-                      class="select2 form-select"
-                      name="semister"
-                      data-allow-clear="true">
-                      <option value="">Select Semister</option>
-                      <option value="1">1st semister</option>
-                      <option value="2">2nd semister</option>
-                      <option value="3">3rd semister</option>
-                      <option value="4">4th semister</option>
-                      <option value="5">5th semister</option>
-                      <option value="6">6th semister</option>
-                      <option value="7">7th semister</option>
-                      <option value="8">8th semister</option>
-                     
+                      id="semister"
+                      class="form-select"
+                      v-model="register.semister">
+                      <option value="">Select Semester</option>
+                      <option value="1st">1st semester</option>
+                      <option value="2nd">2nd semester</option>
+                      <option value="3rd">3rd semester</option>
+                      <option value="4th">4th semester</option>
+                      <option value="5th">5th semester</option>
+                      <option value="6th">6th semester</option>
+                      <option value="7th">7th semester</option>
+                      <option value="8th">8th semester</option>
                     </select>
                   </div>
+
                   <div class="col-md-4">
                     <label class="form-label" for="multiStepsName"
                       >BTEB Roll</label
@@ -371,7 +357,7 @@
                       type="number"
                       id="multiStepsName"
                       class="form-control"
-                      name="btebroll"
+                      v-model="register.btebroll"
                       placeholder="roll" />
                   </div>
                   <div class="col-6 col-md-4">
@@ -380,7 +366,7 @@
                       type="text"
                       id="session"
                       class="form-control"
-                      name="session"
+                      v-model="register.session"
                       placeholder="2020-2021" />
                   </div>
 
@@ -394,13 +380,14 @@
                       >
                     </button>
                     <button
+                      @click="registerAction"
                       type="submit"
-                      class="btn btn-success btn-next btn-submit">
+                      class="btn btn-success">
                       Submit
                     </button>
                   </div>
                 </div>
-                <!--/ Credit Card Details -->
+                <!--/ Batch Information -->
               </div>
             </form>
           </div>
@@ -411,49 +398,105 @@
   </div>
 </template>
 <script>
-import { readonly } from 'vue';
+import { readonly } from "vue";
+import axios from "axios";
+import { inject } from "vue";
+// import flatpickr from "flatpickr"; // Ensure you import flatpickr if it's used
 
-//  import loader from '../../components/include/Loader.vue';
 export default {
-  // components: {
-  //   loader
-  // },
+  setup() {
+    const globalVariables = inject("globalVariables");
+    return { globalVariables };
+  },
 
   data() {
     return {
+      register: {
+        username: "",
+        email: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+        phone: "",
+        birthdate: "",
+        department: "", // Make sure to initialize department here
+        semister: "",
+        btebroll: "",
+        session: "",
+      },
+      validationErrors: {}, // To store validation errors
       currentStep: 1,
       isPasswordVisible: false,
       isConfirmPasswordVisible: false,
-      // isLoading: true, // Uncomment if needed
+      isLoading: true,
     };
   },
+
   methods: {
+    // Function to convert date format from DD-MM-YYYY to YYYY-MM-DD
+    formatDate(dateString) {
+      const parts = dateString.split("-");
+      return `${parts[2]}-${parts[1]}-${parts[0]}`; // Converts to YYYY-MM-DD
+    },
+
+    registerAction() {
+      // Validate that a department is selected
+      if (!this.register.department) {
+        alert("Please select a department before submitting.");
+        return; // Stop further execution
+      }
+      if (!this.register.semister) {
+        alert("Please select a semester before submitting.");
+        return; // Stop further execution
+      }
+
+      // Convert birthdate before sending
+      if (this.register.birthdate) {
+        this.register.birthdate = this.formatDate(this.register.birthdate);
+      }
+
+      axios
+        .post(this.globalVariables.apiUrl + "/register", this.register, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          console.error("Error during registration:", error);
+          // Handle error (e.g., set validationErrors if necessary)
+        });
+    },
+
     togglePasswordVisibility(field) {
-      // Toggle password visibility
       this[field] = !this[field];
     },
+
     goToNextStep() {
-      // Logic to go to the next step without refreshing the page
       this.currentStep++;
     },
+
     goToPreviousStep() {
-      // Logic to go to the previous step
       this.currentStep--;
     },
   },
+
   mounted() {
-    // Hide loader after content is "loaded"
     setTimeout(() => {
       this.isLoading = false;
     }, 2000);
 
-    // Initialize Flatpickr after component is mounted
     flatpickr("#formtabs-birthdate", {
       dateFormat: "d-m-Y",
       altInput: true,
-      // altFormat: "Y-m-d",
       altFormat: "j F,Y",
-      
+      onChange: (selectedDates, dateStr) => {
+        // Update birthdate whenever the date is selected
+        this.register.birthdate = dateStr; // Store selected date in DD-MM-YYYY format
+      },
     });
   },
 };

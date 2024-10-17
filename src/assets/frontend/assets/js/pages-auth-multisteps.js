@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
               },
               identical: {
                 compare: function () {
-                  return stepsValidationFormStep1.querySelector('[name="multiStepsPass"]').value;
+                  return stepsValidationFormStep1.querySelector('[id="multiStepsPass"]').value;
                 },
                 message: 'The password and its confirm are not the same'
               }
@@ -178,13 +178,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
               }
             }
           },
-          multiStepsLastName: {
-            validators: {
-              notEmpty: {
-                message: 'Please enter last name'
-              }
-            }
-          },
           multiStepsMobile: {
             validators: {
               notEmpty: {
@@ -211,8 +204,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
               // ele is the field element
               switch (field) {
                 case 'multiStepsFirstName':
-                  return '.col-sm-6';
-                case 'multiStepsLastName':
                   return '.col-sm-6';
                 case 'multiStepsAddress':
                   return '.col-md-6';

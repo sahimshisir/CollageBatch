@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
       if (multiStepsMobile) {
         new Cleave(multiStepsMobile, {
           phone: true,
-          phoneRegionCode: 'US'
+          phoneRegionCode: 'BD'
         });
       }
 
@@ -182,7 +182,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
             validators: {
               notEmpty: {
                 message: 'Please enter your Number'
-              }
+              },
+              stringLength: {
+                min: 11,
+                max: 11,
+                message: 'The number must be 11'
+              },
             }
           },
           birthdate: {

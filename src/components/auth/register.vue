@@ -75,13 +75,33 @@
                 </div>
                 <div class="row g-3">
                   <div class="col-sm-6">
+                    
                     <label class="form-label" for="username">Username</label>
                     <input
                       type="text"
                       v-model="register.username"
+                      name="multiStepsUsername"
                       id="multiStepsUsername"
-                      class="form-control"
-                      placeholder="Name" />
+                      class="form-control mb-2"
+                      placeholder="username"
+                      @input="checkUsername" />
+                    <!-- Username available message -->
+                    <p
+                      :class="{
+                        'errorTag-active': isAvailable !== null,
+                        errorTag: isAvailable === null,
+                      }"
+                      :style="
+                        isAvailable === true
+                          ? 'color: #139f13; font-size: 14px'
+                          : 'color: #ea5455; font-size: 14px'
+                      ">
+                      {{
+                        isAvailable === true
+                          ? "Username is available  &#128522;"
+                          : "Username is taken !!"
+                      }}
+                    </p>
                   </div>
                   <div class="col-sm-6">
                     <label class="form-label" for="email">Email</label>
@@ -89,6 +109,7 @@
                       type="email"
                       v-model="register.email"
                       id="multiStepsEmail"
+                      name="multiStepsEmail"
                       class="form-control"
                       placeholder="Email"
                       aria-label="john.doe" />
@@ -101,6 +122,7 @@
                         id="multiStepsPass"
                         v-model="register.password"
                         class="form-control"
+                        name="multiStepsPass"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="multiStepsPass2" />
                       <span
@@ -178,6 +200,7 @@
                       id="multiStepsFirstName"
                       v-model="register.first_name"
                       class="form-control"
+                      name="multiStepsFirstName"
                       placeholder="John" />
                   </div>
                   <div class="col-sm-6">
@@ -197,6 +220,7 @@
                         type="text"
                         id="multiStepsMobile"
                         v-model="register.phone"
+                        name="multiStepsMobile"
                         class="form-control multi-steps-mobile"
                         placeholder="1*********" />
                     </div>
@@ -207,6 +231,7 @@
                       type="date"
                       id="formtabs-birthdate"
                       v-model="register.birthdate"
+                      name="birthdate"
                       class="form-control dob-picker flatpickr-input active"
                       placeholder="DD-MM-YYYY"
                       readonly="readonly" />
@@ -335,6 +360,7 @@
                     >
                     <select
                       id="semister"
+                      name="semister"
                       class="form-select"
                       v-model="register.semister">
                       <option value="">Select Semester</option>
@@ -356,6 +382,7 @@
                     <input
                       type="number"
                       id="multiStepsName"
+                      name="btebroll"
                       class="form-control"
                       v-model="register.btebroll"
                       placeholder="roll" />
@@ -365,6 +392,7 @@
                     <input
                       type="text"
                       id="session"
+                      name="session"
                       class="form-control"
                       v-model="register.session"
                       placeholder="2020-2021" />
@@ -401,7 +429,7 @@
 import { readonly } from "vue";
 import axios from "axios";
 import { inject } from "vue";
-// import flatpickr from "flatpickr"; // Ensure you import flatpickr if it's used
+import debounce from "lodash/debounce";
 
 export default {
   setup() {
@@ -424,6 +452,7 @@ export default {
         btebroll: "",
         session: "",
       },
+      isAvailable: null, // For checking if the username is available
       validationErrors: {}, // To store validation errors
       currentStep: 1,
       isPasswordVisible: false,
@@ -439,6 +468,7 @@ export default {
       return `${parts[2]}-${parts[1]}-${parts[0]}`; // Converts to YYYY-MM-DD
     },
 
+    // Register function
     registerAction() {
       // Validate that a department is selected
       if (!this.register.department) {
@@ -471,9 +501,34 @@ export default {
         });
     },
 
+    // Toggle password visibility
     togglePasswordVisibility(field) {
       this[field] = !this[field];
     },
+
+    // Debounced method to check username availability
+    checkUsername: debounce(function () {
+      if (this.register.username.trim() === "") {
+        this.isAvailable = null; // Reset if input is empty
+        return;
+      }
+
+      this.isAvailable = null; // Reset the value while checking
+
+      // Simulating an API call to check username availability
+      axios
+        .get(
+          this.globalVariables.apiUrl +
+            `/checkUsername?username=${this.register.username}`
+        )
+        .then((response) => {
+          this.isAvailable = response.data.available;
+        })
+        .catch((error) => {
+          console.error("Error checking username:", error);
+          this.isAvailable = false; // Assume taken in case of error
+        });
+    }, 500), // Debounce to avoid multiple requests
 
     goToNextStep() {
       this.currentStep++;
@@ -532,4 +587,17 @@ export default {
 .con_heder {
   font-size: 20px !important;
 }
+/* Apply transition to fade effect */
+.errorTag {
+  opacity: 0;
+  transition: opacity 0.5s ease; 
+ position: absolute;
+}
+
+.errorTag-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  position: absolute;
+}
+
 </style>

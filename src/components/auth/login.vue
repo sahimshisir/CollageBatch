@@ -91,7 +91,7 @@
 
         <p class="text-center">
           <span>New on our platform?</span>
-          <a href="/register"><span>Create an account</span></a>
+          <a href="/register"><span class="ms-2">Create an account</span></a>
         </p>
 
         <div class="divider my-4">

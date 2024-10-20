@@ -28,7 +28,7 @@
                     fill="#7367F0" />
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bold">Warriors</span>
+              <span class="app-brand-text demo menu-text fw-bold">SyncXss</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">

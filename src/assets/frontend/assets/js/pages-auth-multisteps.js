@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
               },
               regexp: {
                 regexp: /^[a-zA-Z0-9 ]+$/,
-                message: 'The name can only consist of alphabetical, number and space'
+                message: 'The name can only consist of alphabetical and Number'
               }
             }
           },

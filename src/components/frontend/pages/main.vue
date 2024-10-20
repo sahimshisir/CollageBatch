@@ -304,7 +304,7 @@
         </div>
         <!-- fotter -->
         <div class="fotter text-center mt-1">
-          <p class="text-muted fs-tiny"><i class="fa-regular fa-copyright me-1"></i>All right reserved by SahimShishir</p>
+          <p class="text-muted fs-tiny"><i class="fa-regular fa-copyright me-1"></i>All right reserved by <span class="badge bg-primary rounded-pill">Team SyncXss</span></p>
         </div>
       </div>
     </div>

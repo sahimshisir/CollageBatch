@@ -75,7 +75,6 @@
                 </div>
                 <div class="row g-3">
                   <div class="col-sm-6">
-                    
                     <label class="form-label" for="username">Username</label>
                     <input
                       type="text"
@@ -84,22 +83,27 @@
                       id="multiStepsUsername"
                       class="form-control mb-2"
                       placeholder="username"
-                      @input="checkUsername" />
+                      @input="checkUsername"
+                      :class="{ 'border-danger': isAvailable === false }" />
+
                     <!-- Username available message -->
                     <p
+                      id="error"
                       :class="{
-                        'errorTag-active': isAvailable !== null,
+                        'errorTag-active':
+                          register.username.length >= 6 &&
+                          isAvailable === false,
                         errorTag: isAvailable === null,
                       }"
                       :style="
-                        isAvailable === true
-                          ? 'color: #139f13; font-size: 14px'
-                          : 'color: #ea5455; font-size: 14px'
+                        isAvailable === false
+                          ? 'color: #ea5455; font-size: 14px'
+                          : 'color: #139f13; font-size: 14px'
                       ">
                       {{
-                        isAvailable === true
-                          ? "Username is available  &#128522;"
-                          : "Username is taken !!"
+                        isAvailable === false
+                          ? "Sorry Username is taken !! &#128532;"
+                          : "Username is available 😊"
                       }}
                     </p>
                   </div>
@@ -110,10 +114,30 @@
                       v-model="register.email"
                       id="multiStepsEmail"
                       name="multiStepsEmail"
-                      class="form-control"
+                      class="form-control mb-2"
                       placeholder="Email"
-                      aria-label="john.doe" />
+                      aria-label="john.doe"
+                      @input="checkEmail"
+                      :class="{ 'border-danger': availableEmail === false }" />
+                    <p
+                      id="error"
+                      :class="{
+                        'errorTag-active': availableEmail === false,
+                        errorTag: availableEmail === null,
+                      }"
+                      :style="
+                        availableEmail === false
+                          ? 'color: #ea5455; font-size: 14px'
+                          : 'color: #139f13; font-size: 14px'
+                      ">
+                      {{
+                        availableEmail === false
+                          ? "Sorry, this email is already in use! 😔"
+                          : "Email is available 😊"
+                      }}
+                    </p>
                   </div>
+
                   <div class="col-sm-6 form-password-toggle">
                     <label class="form-label" for="password">Password</label>
                     <div class="input-group input-group-merge">
@@ -174,7 +198,11 @@
                     </button>
                     <button
                       class="btn btn-primary btn-next"
-                      @click.prevent="goToNextStep">
+                      @click.prevent="goToNextStep"
+                      :disabled="
+                        isAvailable === false || availableEmail === false
+                      "
+                      :class="{ disabled: isAvailable === false }">
                       <span
                         class="align-middle d-sm-inline-block d-none me-sm-1 me-0"
                         >Next</span
@@ -360,9 +388,11 @@
                     >
                     <select
                       id="semister"
-                      name="semister"
                       class="form-select"
-                      v-model="register.semister">
+                      v-model="register.semister"
+                      name="semister"
+                      aria-describedby="semister-error"
+                      :class="{ 'error-border': validationErrors.semister }">
                       <option value="">Select Semester</option>
                       <option value="1st">1st semester</option>
                       <option value="2nd">2nd semester</option>
@@ -373,29 +403,44 @@
                       <option value="7th">7th semester</option>
                       <option value="8th">8th semester</option>
                     </select>
+                    <span class="error" id="semister-error">{{
+                      validationErrors.semister
+                    }}</span>
                   </div>
 
                   <div class="col-md-4">
-                    <label class="form-label" for="multiStepsName"
-                      >BTEB Roll</label
-                    >
+                    <label class="form-label" for="btebroll">BTEB Roll</label>
                     <input
-                      type="number"
-                      id="multiStepsName"
-                      name="btebroll"
+                      type="text"
+                      id="btebroll"
                       class="form-control"
                       v-model="register.btebroll"
-                      placeholder="roll" />
+                      name="btebroll"
+                      placeholder="roll"
+                      aria-describedby="btebroll-error"
+                      :class="{ 'error-border': validationErrors.btebroll }"
+                      @input="clearError('btebroll')" />
+                    <span class="error" id="btebroll-error">{{
+                      validationErrors.btebroll
+                    }}</span>
                   </div>
+
                   <div class="col-6 col-md-4">
                     <label class="form-label" for="session">Your Session</label>
                     <input
                       type="text"
                       id="session"
-                      name="session"
                       class="form-control"
                       v-model="register.session"
-                      placeholder="2020-2021" />
+                      name="session"
+                      placeholder="2020-2021"
+                      pattern="\d{4}-\d{4}"
+                      :class="{ 'error-border': validationErrors.session }"
+                      @input="clearError('session')"
+                      aria-describedby="session-error" />
+                    <span class="error" id="session-error">{{
+                      validationErrors.session
+                    }}</span>
                   </div>
 
                   <div
@@ -447,13 +492,14 @@ export default {
         last_name: "",
         phone: "",
         birthdate: "",
-        department: "", // Make sure to initialize department here
+        department: "",
         semister: "",
         btebroll: "",
         session: "",
       },
-      isAvailable: null, // For checking if the username is available
-      validationErrors: {}, // To store validation errors
+      isAvailable: null,
+      availableEmail: null,
+      validationErrors: {},
       currentStep: 1,
       isPasswordVisible: false,
       isConfirmPasswordVisible: false,
@@ -468,16 +514,36 @@ export default {
       return `${parts[2]}-${parts[1]}-${parts[0]}`; // Converts to YYYY-MM-DD
     },
 
+    validateRegistration() {
+      const errors = {};
+
+      // Validate semester
+      if (!this.register.semister) {
+        errors.semister = "Please select your semester.";
+      }
+
+      // Validate BTEB Roll
+      if (!this.register.btebroll) {
+        errors.btebroll = "BTEB Roll is required.";
+      }
+
+      // Validate Session (must follow format YYYY-YYYY)
+      const sessionPattern = /^\d{4}-\d{4}$/;
+      if (!sessionPattern.test(this.register.session)) {
+        errors.session = "Please enter a valid session (e.g., 2020-2021).";
+      }
+
+      return errors; // Return the errors object
+    },
+
     // Register function
     registerAction() {
-      // Validate that a department is selected
-      if (!this.register.department) {
-        alert("Please select a department before submitting.");
-        return; // Stop further execution
-      }
-      if (!this.register.semister) {
-        alert("Please select a semester before submitting.");
-        return; // Stop further execution
+      this.validationErrors = {}; // Reset errors before validation
+      const validationErrors = this.validateRegistration();
+
+      if (Object.keys(validationErrors).length) {
+        this.validationErrors = validationErrors; // Store validation errors
+        return; // Stop further execution if there are validation errors
       }
 
       // Convert birthdate before sending
@@ -485,6 +551,7 @@ export default {
         this.register.birthdate = this.formatDate(this.register.birthdate);
       }
 
+      // Proceed with registration if there are no errors
       axios
         .post(this.globalVariables.apiUrl + "/register", this.register, {
           headers: {
@@ -493,7 +560,8 @@ export default {
           },
         })
         .then((res) => {
-          this.$router.push("/");
+          // Handle success
+          this.$router.push("/"); // Redirect on successful registration
         })
         .catch((error) => {
           console.error("Error during registration:", error);
@@ -501,34 +569,85 @@ export default {
         });
     },
 
+    // Clear error for a specific field
+    clearError(field) {
+      if (this.register[field]) {
+        this.validationErrors[field] = ""; // Clear error if field has a value
+      }
+    },
+
     // Toggle password visibility
     togglePasswordVisibility(field) {
       this[field] = !this[field];
     },
 
+    // // Clear error for a specific field
+    // clearError(field) {
+    //   if (this.register[field]) {
+    //     this.validationErrors[field] = ""; // Clear error if field has a value
+    //   }
+    // },
+
     // Debounced method to check username availability
     checkUsername: debounce(function () {
-      if (this.register.username.trim() === "") {
-        this.isAvailable = null; // Reset if input is empty
+      const usernameLength = this.register.username.length;
+      const username = this.register.username;
+      const specialCharPattern = /[@#$%!^&*(){}\[\]:\"'\/.,]/;
+
+      if (usernameLength < 6) {
+        this.isAvailable = null;
         return;
       }
 
-      this.isAvailable = null; // Reset the value while checking
+      if (specialCharPattern.test(username)) {
+        this.isAvailable = null; // Reset availability if special characters are found
+        return;
+      }
 
-      // Simulating an API call to check username availability
+      this.isAvailable = null;
+
       axios
         .get(
           this.globalVariables.apiUrl +
-            `/checkUsername?username=${this.register.username}`
+            `/checkEnquiry?username=${this.register.username}`
         )
         .then((response) => {
           this.isAvailable = response.data.available;
         })
         .catch((error) => {
           console.error("Error checking username:", error);
-          this.isAvailable = false; // Assume taken in case of error
+          this.isAvailable = false;
         });
-    }, 500), // Debounce to avoid multiple requests
+    }, 500),
+
+    checkEmail: debounce(function () {
+      const useremail = this.register.email.trim();
+
+      // Basic email format check: it must have "@" and a domain (something after "@")
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // If the email format is invalid, reset and return
+      if (!emailPattern.test(useremail)) {
+        this.availableEmail = null; // Reset the value if the email is invalid
+        return;
+      }
+
+      this.availableEmail = null; // Reset the value while checking
+
+      // Make the API request to check if the email is available
+      axios
+        .get(
+          this.globalVariables.apiUrl +
+            `/checkEnquiry?email=${encodeURIComponent(this.register.email)}`
+        )
+        .then((res) => {
+          this.availableEmail = res.data.availableEmail; // Ensure the response matches this key
+        })
+        .catch((error) => {
+          console.error("Error checking email:", error);
+          this.availableEmail = false; // Assume email is taken if there's an error
+        });
+    }, 500),
 
     goToNextStep() {
       this.currentStep++;
@@ -588,16 +707,33 @@ export default {
   font-size: 20px !important;
 }
 /* Apply transition to fade effect */
+#error {
+  position: absolute;
+  transition: opacity 0.5s ease;
+}
 .errorTag {
   opacity: 0;
-  transition: opacity 0.5s ease; 
- position: absolute;
+  transition: opacity 0.1s ease;
+  position: absolute;
 }
 
 .errorTag-active {
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.1s ease;
   position: absolute;
 }
+.border-danger {
+  border-color: #ea5455 !important; /* Change the color to red */
+}
+.border-danger:focus {
+  border-color: #ea5455 !important; /* Change the color to red */
+}
+.error-border {
+  border: 1px solid red; /* Change border color to red */
+}
 
+.error {
+  color: #ea5455; /* Error message color */
+  font-size: 0.875em; /* Adjust the font size */
+}
 </style>

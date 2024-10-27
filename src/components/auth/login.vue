@@ -1,4 +1,5 @@
 <template>
+   <loader v-if="isLoading"></loader>
   <div class="authentication-inner row">
     <!-- /Left Text -->
     <div class="d-none d-lg-flex col-lg-7 p-0">
@@ -131,13 +132,16 @@
 import axios from "axios";
 import { inject } from "vue";
 import { useToast } from "vue-toastification";
+import Loader from "../include/Loader.vue";
 
 export default {
+  components: {
+    Loader,
+  },
   setup() {
     const globalVariables = inject("globalVariables");
-    const toast = useToast(); // Initialize toast
-
-    return { globalVariables, toast }; // Return toast so it can be accessed within the methods
+    const toast = useToast();
+    return { globalVariables, toast };
   },
   data() {
     return {
@@ -150,6 +154,7 @@ export default {
         password: "",
       },
       passwordFieldType: "password",
+      isLoading: false,
     };
   },
   methods: {
@@ -180,6 +185,7 @@ export default {
         this.passwordFieldType === "password" ? "text" : "password";
     },
     async submitForm() {
+      this.isLoading = true;
       this.errors.credential = "";
       this.errors.password = "";
 
@@ -202,7 +208,7 @@ export default {
         // Display a success toast
         this.toast.success(response.data.message, {
           position: "top-right",
-          timeout: 5000,
+          timeout: 3000,
         });
 
         // Store token in localStorage
@@ -246,7 +252,7 @@ export default {
             // Show error toast
             this.toast.error("Server error, please try again later", {
               position: "top-right",
-              timeout: 5000,
+              timeout: 3000,
             });
           } else {
             console.error("Unexpected error:", error);
@@ -257,9 +263,11 @@ export default {
           // Show a generic error toast
           this.toast.error("Something went wrong. Please try again.", {
             position: "top-right",
-            timeout: 5000,
+            timeout: 3000,
           });
         }
+      } finally {
+        this.isLoading = false;
       }
     },
   },
@@ -273,5 +281,9 @@ export default {
   margin-top: 0.25rem;
   font-size: 0.8125rem;
   color: var(--bs-form-invalid-color);
+}
+.toserBgClass {
+  background: #7367f0; /* Set your desired color */
+  color: #ffffff; /* Optional: ensures text is readable */
 }
 </style>

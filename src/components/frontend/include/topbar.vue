@@ -1,9 +1,10 @@
 <template>
+  <loader v-if="isLoading"></loader>
   <nav
-    class=" col-md-4 layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+    class="col-md-4 layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
     id="layout-navbar">
     <div
-      class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none ">
+      class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
       <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
         <i class="ti ti-menu-2 ti-sm d-none"></i>
         <span>Warriors</span>
@@ -19,11 +20,10 @@
           <a
             class="nav-item nav-link search-toggler d-flex align-items-center px-0"
             data-bs-toggle="modal"
-            data-bs-target="#searchModal" style="cursor: pointer;">
+            data-bs-target="#searchModal"
+            style="cursor: pointer">
             <i class="ti ti-search ti-md me-2"></i>
-            <span class="d-none d-md-block text-muted"
-              >Search (Ctrl+/)</span
-            >
+            <span class="d-none d-md-block text-muted">Search (Ctrl+/)</span>
           </a>
         </div>
       </div>
@@ -573,7 +573,9 @@
             <li>
               <a class="dropdown-item">
                 <i class="ti ti-user-check me-2 ti-sm"></i>
-                <RouterLink to="/profile" class="text-white">My Profile</RouterLink>
+                <RouterLink to="/profile" class="text-white"
+                  >My Profile</RouterLink
+                >
               </a>
             </li>
             <li>
@@ -617,12 +619,9 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-              <a
-                class="dropdown-item"
-                href="auth-login-cover.html"
-                target="_blank">
+              <a class="dropdown-item">
                 <i class="ti ti-logout me-2 ti-sm"></i>
-                <span class="align-middle">Log Out</span>
+                <span @click="logout" class="align-middle">Log Out</span>
               </a>
             </li>
           </ul>
@@ -641,11 +640,14 @@
       <i class="ti ti-x ti-sm search-toggler cursor-pointer"></i>
     </div>
   </nav>
-  <div class="modal fade mt-5 " id="searchModal" tabindex="-1" aria-hidden="true">
+  <div
+    class="modal fade mt-5"
+    id="searchModal"
+    tabindex="-1"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          
           <button
             type="button"
             class="btn-close"
@@ -653,12 +655,60 @@
             aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <div>
-          <input type="text" class="form-control form-control-lg py-3" placeholder="Search!!">
-         </div>
-         <div class="text-center mt-3 text-muted py-4">No data found</div>
+          <div>
+            <input
+              type="text"
+              class="form-control form-control-lg py-3"
+              placeholder="Search!!" />
+          </div>
+          <div class="text-center mt-3 text-muted py-4">No data found</div>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+import { inject } from "vue";
+import { useToast } from "vue-toastification";
+import Loader from "../../include/Loader.vue";
+
+export default {
+  components: {
+    Loader,
+  },
+  setup() {
+    const globalVariables = inject("globalVariables");
+    const toast = useToast();
+    return { globalVariables, toast };
+  },
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+ methods: {
+  async logout() {
+    this.isLoading = true;  // Start loader
+
+    // Simulate logout process
+    localStorage.removeItem("token");
+
+    // Display a success toast
+    this.toast.success("Logged out successfully", {
+      position: "top-right",
+      timeout: 3000,
+    });
+
+    // Redirect to login page
+    this.$router.push("/");
+
+    // Optionally, add a slight delay for better UX
+    setTimeout(() => {
+      this.isLoading = false;  // Stop loader
+    }, 1000);
+  },
+}
+
+};
+</script>

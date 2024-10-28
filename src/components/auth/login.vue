@@ -1,5 +1,5 @@
 <template>
-   <loader v-if="isLoading"></loader>
+  <loader v-if="isLoading"></loader>
   <div class="authentication-inner row">
     <!-- /Left Text -->
     <div class="d-none d-lg-flex col-lg-7 p-0">
@@ -190,7 +190,7 @@ export default {
       this.errors.credential = "";
       this.errors.password = "";
 
-      let data = {
+      const data = {
         credential: this.form.credential,
         password: this.form.password,
       };
@@ -201,31 +201,41 @@ export default {
           data,
           {
             headers: {
-              "Content-Type": "application/json",
-            },
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "multipart/form-data",
+          },
           }
         );
 
-        // Display a success toast
+        // If login is successful, save the token and redirect to home
         this.toast.success(response.data.message, {
           position: "top-right",
           timeout: 3000,
         });
-
-        // Store token in localStorage
         localStorage.setItem("token", response.data.token);
-
-        // Redirect to home
         this.$router.push("/home");
       } catch (error) {
         console.error("Error during login:", error);
 
         if (error.response) {
-          if (error.response.status === 401) {
+          if (error.response.status === 403) {
+            // OTP required for email verification
+            this.toast.warning("Please check your email for the OTP", {
+              position: "top-right",
+              timeout: 5000,
+            });
+
+            // Store email/username for OTP verification
+            localStorage.setItem(
+              "registeredEmail",
+              this.form.credential
+            );
+
+            // Redirect to OTP verification page
+            this.$router.push("/registerOtp");
+          } else if (error.response.status === 401) {
             this.errors.password =
               error.response.data.error || "Invalid credentials";
-
-            // Show error toast
             this.toast.error("Invalid credentials", {
               position: "top-right",
               timeout: 5000,
@@ -233,35 +243,18 @@ export default {
           } else if (error.response.status === 404) {
             this.errors.credential =
               error.response.data.error || "Route not found";
-
-            // Show error toast
             this.toast.error("Route not found", {
-              position: "top-right",
-              timeout: 5000,
-            });
-          } else if (error.response.status === 400) {
-            this.errors.credential = "Invalid input";
-
-            // Show error toast
-            this.toast.error("Invalid input", {
               position: "top-right",
               timeout: 5000,
             });
           } else if (error.response.status === 500) {
             this.errors.credential = "Server error, please try again later";
-
-            // Show error toast
             this.toast.error("Server error, please try again later", {
               position: "top-right",
               timeout: 3000,
             });
-          } else {
-            console.error("Unexpected error:", error);
           }
         } else {
-          console.error("Error without response:", error);
-
-          // Show a generic error toast
           this.toast.error("Something went wrong. Please try again.", {
             position: "top-right",
             timeout: 3000,
@@ -271,6 +264,7 @@ export default {
         this.isLoading = false;
       }
     },
+
     // register(){
     //   this.isLoading = true;
 

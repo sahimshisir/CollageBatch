@@ -423,15 +423,16 @@
                         'error-border': validationErrors.btebroll,
                         'border-danger': availableRoll === false,
                       }"
-                      @input="checkRoll"/>
+                      @input="checkRoll" />
                     <!-- <span class="error" id="btebroll-error">{{
                       validationErrors.btebroll
                     }}</span> -->
                     <p
                       id="error"
                       :class="{
-                        'errorTag-active': register.btebroll.length == 0 &&
-                         availableRoll === false,
+                        'errorTag-active':
+                          register.btebroll.length == 0 &&
+                          availableRoll === false,
                         errorTag: availableRoll === null,
                       }"
                       :style="
@@ -478,9 +479,7 @@
                       @click="registerAction"
                       type="submit"
                       class="btn btn-success"
-                      :disabled="
-                        availableRoll === false
-                      "
+                      :disabled="availableRoll === false"
                       :class="{ disabled: availableRoll === false }">
                       Submit
                     </button>
@@ -504,7 +503,6 @@ import debounce from "lodash/debounce";
 import { useToast } from "vue-toastification";
 import Loader from "../include/Loader.vue";
 
-
 export default {
   components: {
     Loader,
@@ -512,7 +510,7 @@ export default {
   setup() {
     const globalVariables = inject("globalVariables");
     const toast = useToast();
-    return { globalVariables,toast };
+    return { globalVariables, toast };
   },
 
   data() {
@@ -598,15 +596,41 @@ export default {
         })
         .then((res) => {
           this.toast.success(res.data.message, {
-          position: "top-right",
-          timeout: 5000,
-        });
+            position: "top-right",
+            timeout: 5000,
+          });
+
+          // Store the registered email in localStorage
+          const registeredEmail = this.register.email; // Use the email from the registration form
+          localStorage.setItem("registeredEmail", registeredEmail);
+
+          // Set session expiry time (5 minutes)
+          const expiryTime = Date.now() + 5 * 60 * 1000; // 5 minutes in milliseconds
+          localStorage.setItem("sessionExpiry", expiryTime);
+
+          // Automatically clear session after 5 minutes
+          setTimeout(() => {
+            this.clearSession();
+          }, 5 * 60 * 1000); // 5 minutes in milliseconds
+
           this.$router.push("/registerOtp"); // Redirect on successful registration
         })
         .catch((error) => {
           console.error("Error during registration:", error);
           // Handle error (e.g., set validationErrors if necessary)
         });
+    },
+
+    // Method to clear session data
+    clearSession() {
+      localStorage.removeItem("registeredEmail");
+      localStorage.removeItem("sessionExpiry");
+      // Optionally, redirect to the login page or show a message
+      this.toast.info("Session expired. Please log in again.", {
+        position: "top-right",
+        timeout: 5000,
+      });
+      this.$router.push("/"); // Redirect to login page
     },
 
     // Clear error for a specific field

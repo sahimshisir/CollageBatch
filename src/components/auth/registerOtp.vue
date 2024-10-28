@@ -127,9 +127,11 @@
   
         // Combine OTP digits into a single string
         const otpValue = this.otp.join("");
+        const registeredEmail = localStorage.getItem("registeredEmail");
   
         try {
-          const response = await axios.post(`${this.globalVariables.apiUrl}/verify-otp`, {
+          const response = await axios.post(`${this.globalVariables.apiUrl}/verifyOtp`, {
+            email: registeredEmail,
             otp: otpValue,
           }, {
             headers: {

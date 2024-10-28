@@ -621,7 +621,7 @@
             <li>
               <a class="dropdown-item" href="#">
                 <i class="ti ti-logout me-2 ti-sm"></i>
-                <span @click="logout" class="align-middle">Log Out</span>
+                <span @click="SignOut" class="align-middle">Log Out</span>
               </a>
             </li>
           </ul>
@@ -687,30 +687,34 @@ export default {
       isLoading: false,
     };
   },
- methods: {
-  async logout() {
-    this.isLoading = true;  // Start loader
+  methods: {
+    SignOut() {
 
-    // Simulate logout process
-    localStorage.removeItem("token");
-
-    // Display a success toast
-    this.toast.success("Logged out successfully", {
-      position: "top-right",
-      timeout: 3000,
-    });
-
-    // Redirect to login page
-    // Window.reload();
-    this.$router.push("/");
-    
-
-    // Optionally, add a slight delay for better UX
-    setTimeout(() => {
-      this.isLoading = false;  // Stop loader
-    }, 1000);
+      axios
+        .post(
+          this.globalVariables.apiUrl + "/logout",
+          {},
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res); // Log the entire response for debugging
+          if (res.data.status === "success") {
+            this.toast.success(res.data.message); // Use vue-toastification
+            localStorage.removeItem("token"); // Clear the token from localStorage
+            window.location.href = "/"; // Redirect to the home page
+          } else {
+            this.toast.error("Logout failed!"); // Handle unexpected response
+          }
+        })
+        .catch((error) => {
+          this.toast.error("An error occurred during logout!"); // Notify user of error
+          console.error(error); // Log the error for debugging
+        });
+    },
   },
-}
-
 };
 </script>

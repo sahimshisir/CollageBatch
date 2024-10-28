@@ -601,7 +601,7 @@ export default {
           position: "top-right",
           timeout: 5000,
         });
-          this.$router.push("/"); // Redirect on successful registration
+          this.$router.push("/registerOtp"); // Redirect on successful registration
         })
         .catch((error) => {
           console.error("Error during registration:", error);

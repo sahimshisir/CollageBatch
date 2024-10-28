@@ -390,9 +390,10 @@
                       id="semister"
                       class="form-select"
                       v-model="register.semister"
+                      @change="clearError('semister')"
+                      :class="{ 'error-border': validationErrors.semister }"
                       name="semister"
-                      aria-describedby="semister-error"
-                      :class="{ 'error-border': validationErrors.semister }">
+                      aria-describedby="semister-error">
                       <option value="">Select Semester</option>
                       <option value="1st">1st semester</option>
                       <option value="2nd">2nd semester</option>
@@ -418,11 +419,32 @@
                       name="btebroll"
                       placeholder="roll"
                       aria-describedby="btebroll-error"
-                      :class="{ 'error-border': validationErrors.btebroll }"
-                      @input="clearError('btebroll')" />
-                    <span class="error" id="btebroll-error">{{
+                      :class="{
+                        'error-border': validationErrors.btebroll,
+                        'border-danger': availableRoll === false,
+                      }"
+                      @input="checkRoll"/>
+                    <!-- <span class="error" id="btebroll-error">{{
                       validationErrors.btebroll
-                    }}</span>
+                    }}</span> -->
+                    <p
+                      id="error"
+                      :class="{
+                        'errorTag-active': register.btebroll.length == 0 &&
+                         availableRoll === false,
+                        errorTag: availableRoll === null,
+                      }"
+                      :style="
+                        availableRoll === false
+                          ? 'color: #ea5455; font-size: 14px'
+                          : 'color: #139f13; font-size: 14px'
+                      ">
+                      {{
+                        availableRoll === false
+                          ? "Sorry, this Roll is already in use! 😔"
+                          : "BTEB Roll is available 😊"
+                      }}
+                    </p>
                   </div>
 
                   <div class="col-6 col-md-4">
@@ -455,7 +477,11 @@
                     <button
                       @click="registerAction"
                       type="submit"
-                      class="btn btn-success">
+                      class="btn btn-success"
+                      :disabled="
+                        availableRoll === false
+                      "
+                      :class="{ disabled: availableRoll === false }">
                       Submit
                     </button>
                   </div>
@@ -475,11 +501,18 @@ import { readonly } from "vue";
 import axios from "axios";
 import { inject } from "vue";
 import debounce from "lodash/debounce";
+import { useToast } from "vue-toastification";
+import Loader from "../include/Loader.vue";
+
 
 export default {
+  components: {
+    Loader,
+  },
   setup() {
     const globalVariables = inject("globalVariables");
-    return { globalVariables };
+    const toast = useToast();
+    return { globalVariables,toast };
   },
 
   data() {
@@ -499,6 +532,7 @@ export default {
       },
       isAvailable: null,
       availableEmail: null,
+      availableRoll: null,
       validationErrors: {},
       currentStep: 1,
       isPasswordVisible: false,
@@ -521,6 +555,9 @@ export default {
       if (!this.register.semister) {
         errors.semister = "Please select your semester.";
       }
+
+      // this.validationErrors = errors;
+      // return errors;
 
       // Validate BTEB Roll
       if (!this.register.btebroll) {
@@ -560,7 +597,10 @@ export default {
           },
         })
         .then((res) => {
-          // Handle success
+          this.toast.success(res.data.message, {
+          position: "top-right",
+          timeout: 5000,
+        });
           this.$router.push("/"); // Redirect on successful registration
         })
         .catch((error) => {
@@ -572,7 +612,7 @@ export default {
     // Clear error for a specific field
     clearError(field) {
       if (this.register[field]) {
-        this.validationErrors[field] = ""; // Clear error if field has a value
+        this.validationErrors[field] = ""; // Clear error if the field is not empty
       }
     },
 
@@ -580,13 +620,6 @@ export default {
     togglePasswordVisibility(field) {
       this[field] = !this[field];
     },
-
-    // // Clear error for a specific field
-    // clearError(field) {
-    //   if (this.register[field]) {
-    //     this.validationErrors[field] = ""; // Clear error if field has a value
-    //   }
-    // },
 
     // Debounced method to check username availability
     checkUsername: debounce(function () {
@@ -646,6 +679,29 @@ export default {
         .catch((error) => {
           console.error("Error checking email:", error);
           this.availableEmail = false; // Assume email is taken if there's an error
+        });
+    }, 500),
+    clearError(field) {
+      this.validationErrors[field] = null;
+    },
+    checkRoll: debounce(function () {
+      const btebrollLength = this.register.btebroll.length;
+      const fullUrl = `${this.globalVariables.apiUrl}/checkEnquiry?btebroll=${this.register.btebroll}`;
+      console.log(fullUrl); // Log the full URL to see if it's correct
+
+      if (btebrollLength == 0) {
+        this.availableRoll = null;
+        return;
+      }
+      axios
+        .get(fullUrl)
+        .then((res) => {
+          console.log(res);
+          this.availableRoll = res.data.availableRoll; // Ensure the response matches this key
+        })
+        .catch((error) => {
+          console.error("Error checking roll:", error);
+          this.availableRoll = false; // Assume roll is taken if there's an error
         });
     }, 500),
 
@@ -729,11 +785,12 @@ export default {
   border-color: #ea5455 !important; /* Change the color to red */
 }
 .error-border {
-  border: 1px solid red; /* Change border color to red */
+  border: 0.5px solid #ea5455; /* Change border color to red */
 }
 
 .error {
   color: #ea5455; /* Error message color */
-  font-size: 0.875em; /* Adjust the font size */
+  font-size: 0.875em;
+  transition: 0.5s; /* Adjust the font size */
 }
 </style>

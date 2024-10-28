@@ -1,7 +1,10 @@
 <template>
-  <nav class=" col-md-4 layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+  <loader v-if="isLoading"></loader>
+  <nav
+    class="col-md-4 layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
     id="layout-navbar">
-    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none ">
+    <div
+      class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
       <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
         <i class="ti ti-menu-2 ti-sm d-none"></i>
         <span>Warriors</span>
@@ -12,8 +15,11 @@
       <!-- Search -->
       <div class="navbar-nav align-items-center d-none d-sm-block">
         <div class="nav-item navbar-search-wrapper mb-0 d-none d-sm-block">
-          <a class="nav-item nav-link search-toggler d-flex align-items-center px-0" data-bs-toggle="modal"
-            data-bs-target="#searchModal" style="cursor: pointer;">
+          <a
+            class="nav-item nav-link search-toggler d-flex align-items-center px-0"
+            data-bs-toggle="modal"
+            data-bs-target="#searchModal"
+            style="cursor: pointer">
             <i class="ti ti-search ti-md me-2"></i>
             <span class="d-none d-md-block text-muted">Search (Ctrl+/)</span>
           </a>
@@ -427,7 +433,9 @@
             <li>
               <a class="dropdown-item">
                 <i class="ti ti-user-check me-2 ti-sm"></i>
-                <RouterLink to="/profile" class="text-white">My Profile</RouterLink>
+                <RouterLink to="/profile" class="text-white"
+                  >My Profile</RouterLink
+                >
               </a>
             </li>
             <li>
@@ -464,9 +472,9 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-               <a id="dropdown-item" href="#" @click.prevent="logout"> <!-- Call logout method on click -->
+              <a class="dropdown-item" href="#">
                 <i class="ti ti-logout me-2 ti-sm"></i>
-                <span class="align-middle">Log Out</span>
+                <span @click="logout" class="align-middle">Log Out</span>
               </a>
             </li>
 
@@ -483,60 +491,75 @@
       <i class="ti ti-x ti-sm search-toggler cursor-pointer"></i>
     </div>
   </nav>
-  <div class="modal fade mt-5 " id="searchModal" tabindex="-1" aria-hidden="true">
+  <div
+    class="modal fade mt-5"
+    id="searchModal"
+    tabindex="-1"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div>
-            <input type="text" class="form-control form-control-lg py-3" placeholder="Search!!">
-          </div>
-          <div class="text-center mt-3 text-muted py-4">No data found</div>
+         <div>
+          <input type="text" class="form-control form-control-lg py-3" placeholder="Search!!">
+         </div>
+         <div class="text-center mt-3 text-muted py-4">No data found</div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-
 <script>
-
-import axios from 'axios';
+import axios from "axios";
 import { inject } from "vue";
+import { useToast } from "vue-toastification";
+import Loader from "../../include/Loader.vue";
+
 export default {
+  components: {
+    Loader,
+  },
   setup() {
     const globalVariables = inject("globalVariables");
-    return { globalVariables };
+    const toast = useToast();
+    return { globalVariables, toast };
   },
-   methods: {
-     logout(evt) {
-       if(confirm("Are you sure you want to log out?")) {
-        axios.get(this.globalVariables.apiUrl + "/logout").then(response => {
-          localStorage.removeItem('auth_token');
-          
-          // remove any other authenticated user data you put in local storage
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+ methods: {
+  async logout() {
+    this.isLoading = true;  // Start loader
 
-          // Assuming that you set this earlier for subsequent Ajax request at some point like so:
-          // axios.defaults.headers.common['Authorization'] = 'Bearer ' + auth_token ;
-          delete axios.defaults.headers.common['Authorization'];
+    // Simulate logout process
+    localStorage.removeItem("token");
 
-          // If using 'vue-router' redirect to login page
-          this.$router.go('/');
-        })
-        .catch(error => {
-          // If the api request failed then you still might want to remove
-          // the same data from localStorage anyways
-          // perhaps this code should go in a finally method instead of then and catch
-          // methods to avoid duplication.
-          localStorage.removeItem('auth_token');
-          delete axios.defaults.headers.common['Authorization'];
-          this.$router.go('/login');
-        });       
-       }
-     }
-   }
+    // Display a success toast
+    this.toast.success("Logged out successfully", {
+      position: "top-right",
+      timeout: 3000,
+    });
+
+    // Redirect to login page
+    // Window.reload();
+    this.$router.push("/");
+    
+
+    // Optionally, add a slight delay for better UX
+    setTimeout(() => {
+      this.isLoading = false;  // Stop loader
+    }, 1000);
+  },
 }
+
+};
 </script>

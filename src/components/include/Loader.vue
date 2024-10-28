@@ -38,13 +38,13 @@
   display: flex;
   gap: 10px;
   position: relative;
-  top: -22px;
+  top: -15px;
   justify-content: center;
   width: 100%;
   height: 10px;
   border-radius: 50%;
   background: linear-gradient(90deg, #e879f9, #7367f0, #e879f9);
-  animation: box 3s linear infinite;
+  animation: box 2s linear infinite;
   background-size: 200% 100%;
   box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.3), inset 4px 4px 10px rgba(255, 255, 255, 0.2),

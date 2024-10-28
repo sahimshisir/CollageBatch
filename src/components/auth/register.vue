@@ -502,8 +502,13 @@ import axios from "axios";
 import { inject } from "vue";
 import debounce from "lodash/debounce";
 import { useToast } from "vue-toastification";
+import Loader from "../include/Loader.vue";
+
 
 export default {
+  components: {
+    Loader,
+  },
   setup() {
     const globalVariables = inject("globalVariables");
     const toast = useToast();

@@ -133,6 +133,7 @@ import axios from "axios";
 import { inject } from "vue";
 import { useToast } from "vue-toastification";
 import Loader from "../include/Loader.vue";
+import router from "@/router/router";
 
 export default {
   components: {
@@ -270,6 +271,11 @@ export default {
         this.isLoading = false;
       }
     },
+    // register(){
+    //   this.isLoading = true;
+
+    //   this.$router.push("/register");
+    // }
   },
 };
 </script>

@@ -619,7 +619,7 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="#">
                 <i class="ti ti-logout me-2 ti-sm"></i>
                 <span @click="logout" class="align-middle">Log Out</span>
               </a>
@@ -701,7 +701,9 @@ export default {
     });
 
     // Redirect to login page
+    // Window.reload();
     this.$router.push("/");
+    
 
     // Optionally, add a slight delay for better UX
     setTimeout(() => {

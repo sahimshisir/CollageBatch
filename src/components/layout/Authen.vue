@@ -8,7 +8,7 @@
   export default {
     mounted() {
       // Dynamically import JavaScript files
-      // import("../../assets/frontend/assets/vendor/libs/flatpickr/flatpickr.js");
+      // import("../../assets/frontend/assets/js/pages-auth-two-steps.js");
       // import("../../assets/frontend/assets/vendor/libs/flatpickr/flatpickr.css");
       // import("../../assets/frontend/assets/vendor/libs/moment/moment.js");
     }

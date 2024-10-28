@@ -1,5 +1,5 @@
 <template>
-  <!-- <loader v-if="isLoading"></loader> -->
+  <loader v-if="isLoading"></loader>
   <div class="authentication-inner row bg_position">
     <!-- Left Text -->
     <div
@@ -535,7 +535,7 @@ export default {
       currentStep: 1,
       isPasswordVisible: false,
       isConfirmPasswordVisible: false,
-      isLoading: true,
+      isLoading: false,
     };
   },
 
@@ -573,6 +573,7 @@ export default {
 
     // Register function
     registerAction() {
+      this.isLoading = true;
       this.validationErrors = {}; // Reset errors before validation
       const validationErrors = this.validateRegistration();
 
@@ -618,6 +619,9 @@ export default {
         .catch((error) => {
           console.error("Error during registration:", error);
           // Handle error (e.g., set validationErrors if necessary)
+        })
+        .finally(() => {
+          this.isLoading = false;
         });
     },
 

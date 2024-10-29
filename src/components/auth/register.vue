@@ -89,14 +89,12 @@
                     <!-- Username available message -->
                     <p
                       id="error"
-                      :class="{
-                        'errorTag-active':
+                      :class="{ 'errorTag-active':
                           register.username.length >= 6 &&
                           isAvailable === false,
                         errorTag: isAvailable === null,
                       }"
-                      :style="
-                        isAvailable === false
+                      :style="isAvailable === false
                           ? 'color: #ea5455; font-size: 14px'
                           : 'color: #139f13; font-size: 14px'
                       ">
@@ -545,7 +543,7 @@ export default {
     // Function to convert date format from DD-MM-YYYY to YYYY-MM-DD
     formatDate(dateString) {
       const parts = dateString.split("-");
-      return ${parts[2]}-${parts[1]}-${parts[0]}; // Converts to YYYY-MM-DD
+      return `${parts[2]}-${parts[1]}-${parts[0]}`; // Converts to YYYY-MM-DD
     },
 
     validateRegistration() {
@@ -642,7 +640,7 @@ export default {
       axios
         .get(
           this.globalVariables.apiUrl +
-            /checkEnquiry?username=${this.register.username}
+            `/checkEnquiry?username=${this.register.username}`
         )
         .then((response) => {
           this.isAvailable = response.data.available;
@@ -671,7 +669,7 @@ export default {
       axios
         .get(
           this.globalVariables.apiUrl +
-            /checkEnquiry?email=${encodeURIComponent(this.register.email)}
+            `/checkEnquiry?email=${encodeURIComponent(this.register.email)}`
         )
         .then((res) => {
           this.availableEmail = res.data.availableEmail; // Ensure the response matches this key
@@ -686,7 +684,7 @@ export default {
     },
     checkRoll: debounce(function () {
       const btebrollLength = this.register.btebroll.length;
-      const fullUrl = ${this.globalVariables.apiUrl}/checkEnquiry?btebroll=${this.register.btebroll};
+      const fullUrl = `${this.globalVariables.apiUrl}/checkEnquiry?btebroll=${this.register.btebroll}`;
       console.log(fullUrl); // Log the full URL to see if it's correct
 
       if (btebrollLength == 0) {

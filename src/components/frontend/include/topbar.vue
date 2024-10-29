@@ -547,7 +547,7 @@ export default {
       .then((res) => {
         if (res.data.status === "success") {
           localStorage.removeItem("token"); // Clear token
-          this.toast.success(res.data.message);
+          this.toast.primary(res.data.message);
           this.$router.push("/"); // Redirect to login page
         } else {
           this.toast.error("Logout failed!");

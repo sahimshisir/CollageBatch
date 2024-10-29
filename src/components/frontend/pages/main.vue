@@ -26,138 +26,35 @@
             </p>
           </div>
 
-          <div class="card-body">
-            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-              id="plyr-video-player" playsinline controls>
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="card-footer">
-            <div class="d-flex" style="justify-content: space-around">
-              <button class="btn border-0">
-                <i class="fa-regular fa-heart me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
-                <i class="fa-regular fa-comment me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-              <button class="btn border-0">
-                <i class="fa-solid fa-share me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="card mt-4">
-          <div class="card-header">
-            <div class="d-flex">
-              <div class="avatar me-3">
-                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
-              </div>
-              <div>
-                <h5>Alex leman</h5>
-                <span class="timer">10h ago</span>
-              </div>
-            </div>
-            <p class="mt-2 p-0">
-              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
-              aspernatur assumenda architecto consequatur ratione earum id, sint labore
-              officiis quo aperiam vero eligendi!
-            </p>
+          <div class="swiper-container">
+            <swiper :slides-per-view="2" class="mySwiper">
+              <swiper-slide v-for="(slide, index) in slides" :key="index">
+                <div class="slide-content">
+                  <template v-if="slide.image">
+                    <!-- <img class="img-fluid" :src="slide.image" :alt="slide.title" /> -->
+                    <img class="img-fluid post-img" src="../../../assets/frontend/assets/img/backgrounds/1.jpg"
+                      :alt="slide.title" />
+                  </template>
+
+                  <template v-else-if="slide.video">
+                    <!-- <video class="video-fluid" controls>
+                      <source :src="slide.video" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video> -->
+
+                    <video class="w-100 rounded video-fluid post-video"
+                      poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+                      id="plyr-video-player" playsinline controls>
+                      <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+                        type="video/mp4" />
+                    </video>
+
+                  </template>
+                </div>
+              </swiper-slide>
+            </swiper>
           </div>
 
-          <div class="card-body">
-            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-              id="plyr-video-player" playsinline controls>
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="card-footer">
-            <div class="d-flex" style="justify-content: space-around">
-              <button class="btn border-0">
-                <i class="fa-regular fa-heart me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
-                <i class="fa-regular fa-comment me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-              <button class="btn border-0">
-                <i class="fa-solid fa-share me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="card mt-4">
-          <div class="card-header">
-            <div class="d-flex">
-              <div class="avatar me-3">
-                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
-              </div>
-              <div>
-                <h5>Alex leman</h5>
-                <span class="timer">10h ago</span>
-              </div>
-            </div>
-            <p class="mt-2 p-0">
-              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
-              aspernatur assumenda architecto consequatur ratione earum id, sint labore
-              officiis quo aperiam vero eligendi!
-            </p>
-          </div>
-
-          <div class="card-body">
-            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-              id="plyr-video-player" playsinline controls>
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="card-footer">
-            <div class="d-flex" style="justify-content: space-around">
-              <button class="btn border-0">
-                <i class="fa-regular fa-heart me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-              <button class="btn border-0" data-bs-toggle="modal" data-bs-target="#comment">
-                <i class="fa-regular fa-comment me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-              <button class="btn border-0">
-                <i class="fa-solid fa-share me-1 fs-4"></i>
-                <span style="font-size: 12px">12k</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="card mt-4">
-          <div class="card-header">
-            <div class="d-flex">
-              <div class="avatar me-3">
-                <img src="../../../assets/frontend/assets/img/avatars/1.png" class="h-auto rounded-circle" />
-              </div>
-              <div>
-                <h5>Alex leman</h5>
-                <span class="timer">10h ago</span>
-              </div>
-            </div>
-            <p class="mt-2 p-0">
-              lorem ipsum for caption Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit. Sapiente fugit incidunt inventore dolores pariatur aut iusto
-              aspernatur assumenda architecto consequatur ratione earum id, sint labore
-              officiis quo aperiam vero eligendi!
-            </p>
-          </div>
-
-          <div class="card-body">
-            <video class="w-100 rounded" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-              id="plyr-video-player" playsinline controls>
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
-            </video>
-          </div>
           <div class="card-footer">
             <div class="d-flex" style="justify-content: space-around">
               <button class="btn border-0">
@@ -304,7 +201,8 @@
         </div>
         <!-- fotter -->
         <div class="fotter text-center mt-1">
-          <p class="text-muted fs-tiny"><i class="fa-regular fa-copyright me-1"></i>All right reserved by <span class="badge bg-primary rounded-pill">Team SyncXss</span></p>
+          <p class="text-muted fs-tiny"><i class="fa-regular fa-copyright me-1"></i>All right reserved by <span
+              class="badge bg-primary rounded-pill">Team SyncXss</span></p>
         </div>
       </div>
     </div>
@@ -522,6 +420,12 @@ export default {
   },
   data() {
     return {
+      slides: [
+        { title: 'Slide 1', image: '../../../assets/frontend/assets/img/backgrounds/1.jpg' }, // Image only
+        { title: 'Slide 2', video: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4' }, // Video only
+        { title: 'Slide 3', image: '../../../assets/frontend/assets/img/backgrounds/1.jpg' }, // Image only
+        { title: 'Slide 4', video: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4' }, // Video only
+      ],
       images: [],
       files: [],
       slidesPerView: 2,
@@ -619,5 +523,28 @@ export default {
 
 .post-con {
   text-align: ju;
+}
+
+.swiper-container {
+  width: 100%;
+}
+
+.mySwiper {
+  height: 100%;
+}
+
+.slide-content {
+  position: relative;
+  height: 100%;
+}
+.post-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+video#plyr-video-player {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 </style>

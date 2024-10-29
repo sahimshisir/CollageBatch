@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// Parent components
+// Import components
 import FrontendLayout from '../components/layout/Front.vue';
 import BatchLayout from "../components/layout/batch.vue";
 import ProfileLayout from '../components/layout/Profile.vue';
@@ -19,8 +19,8 @@ import BatchAbout from '../components/frontend/pages/Batch/about.vue';
 import BatchContent from '../components/frontend/pages/Batch/content.vue';
 import BatchMember from '../components/frontend/pages/Batch/member.vue';
 import BatchMedia from '../components/frontend/pages/Batch/media.vue';
-import BatchMediaPhoto from '../components/frontend/pages/Batch/mediaSub/photo.vue'
-import BatchMediaVideo from '../components/frontend/pages/Batch/mediaSub/video.vue'
+import BatchMediaPhoto from '../components/frontend/pages/Batch/mediaSub/photo.vue';
+import BatchMediaVideo from '../components/frontend/pages/Batch/mediaSub/video.vue';
 
 // Profile
 import Profile from '../components/frontend/pages/Profile/profile.vue';
@@ -28,129 +28,74 @@ import ProfileAbout from '../components/frontend/pages/Profile/about.vue';
 import ProfileContent from '../components/frontend/pages/Profile/content.vue';
 import ProfileMember from '../components/frontend/pages/Profile/member.vue';
 import ProfileMedia from '../components/frontend/pages/Profile/media.vue';
-import ProfileMediaPhoto from '../components/frontend/pages/Profile/mediaSub/photo.vue'
-import ProfileMediaVideo from '../components/frontend/pages/Profile/mediaSub/video.vue'
+import ProfileMediaPhoto from '../components/frontend/pages/Profile/mediaSub/photo.vue';
+import ProfileMediaVideo from '../components/frontend/pages/Profile/mediaSub/video.vue';
 
 const routes = [
   {
-    // Frontend layout routes
     path: '/',
     component: Auth,
     children: [
-      {
-        path: '',  // This will match "/frontend" and load Main.vue
-        component: login,
-      },
-      {
-        path: 'register',  // This will match "/frontend" and load Main.vue
-        component: register,
-      },
-     
+      { path: '', component: login },
+      { path: 'register', component: register },
     ],
   },
   {
-    // Frontend layout routes
     path: '/home',
     component: FrontendLayout,
     children: [
-      {
-        path: '',  // This will match "/frontend" and load Main.vue
-        component: Main,
-      },
-     
+      { path: '', component: Main },
     ],
+    meta: { requiresAuth: true }, // Protected route
   },
   {
-    // Batch layout routes
     path: '/batch',
     component: BatchLayout,
     children: [
-      {
-        path: '',  // This will match "/batch/post"
-        component: Batch,
-      },
-      {
-        path: '/BatchPost',  // This will match "/batch/post"
-        component: Batch,
-      },
-      {
-        path: '/BatchAbout',  // This will match "/batch/BatchAbout"
-        component: BatchAbout,
-      },
-      {
-        path: '/BatchContent',  // This will match "/batch/BatchContent"
-        component: BatchContent,
-      },
-      {
-        path: '/BatchMember',  // This will match "/batch/BatchMember"
-        component: BatchMember,
-      },
-      {
-        path: '/BatchMedia',  // This will match "/batch/BatchMedia"
-        component: BatchMedia,
-      },
-      {
-        path: '/Media/photo',  // This will match "/batch/BatchMedia"
-        component: BatchMediaPhoto,
-      },
- 
-      {
-        path: '/Media/video',  // This will match "/batch/BatchMedia"
-        component: BatchMediaVideo,
-      },
- 
+      { path: '', component: Batch },
+      { path: '/BatchPost', component: Batch },
+      { path: '/BatchAbout', component: BatchAbout },
+      { path: '/BatchContent', component: BatchContent },
+      { path: '/BatchMember', component: BatchMember },
+      { path: '/BatchMedia', component: BatchMedia },
+      { path: '/Media/photo', component: BatchMediaPhoto },
+      { path: '/Media/video', component: BatchMediaVideo },
     ],
+    meta: { requiresAuth: true }, // Protected route
   },
   {
-    // Batch layout routes
     path: '/profile',
     component: ProfileLayout,
     children: [
-      {
-        path: '',  // This will match "/batch/post"
-        component: Profile,
-      },
-      {
-        path: '/Post',  // This will match "/batch/post"
-        component: Profile,
-      },
-      {
-        path: '/About',  // This will match "/batch/BatchAbout"
-        component: ProfileAbout,
-      },
-      {
-        path: '/Content',  // This will match "/batch/BatchContent"
-        component: ProfileContent,
-      },
-      {
-        path: '/Member',  // This will match "/batch/BatchMember"
-        component: ProfileMember,
-      },
-      {
-        path: '/Media',  // This will match "/batch/BatchMedia"
-        component: ProfileMedia,
-      },
-      {
-        path: '/media_profile_photo',  // This will match "/batch/BatchMedia"
-        component: ProfileMediaPhoto,
-      },
- 
-      {
-        path: '/media_profile_video',  // This will match "/batch/BatchMedia"
-        component: ProfileMediaVideo,
-      },
+      { path: '', component: Profile },
+      { path: '/Post', component: Profile },
+      { path: '/About', component: ProfileAbout },
+      { path: '/Content', component: ProfileContent },
+      { path: '/Member', component: ProfileMember },
+      { path: '/Media', component: ProfileMedia },
+      { path: '/media_profile_photo', component: ProfileMediaPhoto },
+      { path: '/media_profile_video', component: ProfileMediaVideo },
     ],
+    meta: { requiresAuth: true }, // Protected route
   },
-  // Redirect root ("/") to "/frontend"
-  {
-    path: '/',
-    redirect: '/',
-  },
+  { path: '/', redirect: '/' },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+// Navigation Guard to protect routes
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('token'); // Check if token exists
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    // If trying to access a protected route and not authenticated, redirect to login
+    next({ path: '/' });
+  } else {
+    next(); // Otherwise, proceed to the route
+  }
 });
 
 export default router;

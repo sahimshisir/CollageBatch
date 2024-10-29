@@ -537,33 +537,28 @@ export default {
     };
   },
   methods: {
-    SignOut() {
-
-      axios
-        .post(
-          this.globalVariables.apiUrl + "/logout",
-          {},
-          {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        )
-        .then((res) => {
-          console.log(res); // Log the entire response for debugging
-          if (res.data.status === "success") {
-            this.toast.success(res.data.message); // Use vue-toastification
-            localStorage.removeItem("token"); // Clear the token from localStorage
-            window.location.href = "/"; // Redirect to the home page
-          } else {
-            this.toast.error("Logout failed!"); // Handle unexpected response
-          }
-        })
-        .catch((error) => {
-          this.toast.error("An error occurred during logout!"); // Notify user of error
-          console.error(error); // Log the error for debugging
-        });
-    },
+  SignOut() {
+    axios
+      .post(this.globalVariables.apiUrl + "/logout", {}, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        if (res.data.status === "success") {
+          localStorage.removeItem("token"); // Clear token
+          this.toast.success(res.data.message);
+          this.$router.push("/"); // Redirect to login page
+        } else {
+          this.toast.error("Logout failed!");
+        }
+      })
+      .catch((error) => {
+        this.toast.error("An error occurred during logout!");
+        console.error(error);
+      });
   },
+}
+
 };
 </script>

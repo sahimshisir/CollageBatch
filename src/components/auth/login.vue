@@ -89,6 +89,7 @@
               <input
                 class="form-check-input"
                 type="checkbox"
+                v-model="form.remember"
                 id="remember-me" />
               <label class="form-check-label" for="remember-me">
                 Remember Me
@@ -149,6 +150,7 @@ export default {
       form: {
         credential: "",
         password: "",
+        remember: false,
       },
       errors: {
         credential: "",
@@ -193,6 +195,7 @@ export default {
       const data = {
         credential: this.form.credential,
         password: this.form.password,
+        remember: Boolean(this.form.remember),
       };
 
       try {
@@ -211,6 +214,7 @@ export default {
         this.toast.success(response.data.message, {
           position: "top-right",
           timeout: 3000,
+          className: "toast-primary",
         });
         localStorage.setItem("token", response.data.token);
         this.$router.push("/home");
@@ -282,7 +286,7 @@ export default {
   font-size: 0.8125rem;
   color: var(--bs-form-invalid-color);
 }
-.toserBgClass {
+.toast-primary {
   background: #7367f0; /* Set your desired color */
   color: #ffffff; /* Optional: ensures text is readable */
 }

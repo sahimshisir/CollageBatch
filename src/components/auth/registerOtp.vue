@@ -153,6 +153,7 @@ export default {
         this.toast.success(response.data.message, {
           position: "top-right",
           timeout: 3000,
+          className: "toast-primary",
         });
 
         // Redirect to home or next step
@@ -195,6 +196,7 @@ export default {
         this.toast.success(response.data.message, {
           position: "top-right",
           timeout: 3000,
+          className: "toast-primary",
         });
       } catch (error) {
         console.error("Error during OTP resend:", error);
@@ -230,5 +232,9 @@ export default {
 <style scoped>
 .auth-input {
   width: 50px; /* Adjust width as needed */
+}
+.toast-primary {
+  background: #7367f0; /* Set your desired color */
+  color: #ffffff; /* Optional: ensures text is readable */
 }
 </style>

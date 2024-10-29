@@ -599,6 +599,7 @@ export default {
           this.toast.success(res.data.message, {
             position: "top-right",
             timeout: 5000,
+            className: "toast-primary",
           });
 
           // Store the registered email in localStorage
@@ -724,7 +725,7 @@ export default {
       axios
         .get(fullUrl)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           this.availableRoll = res.data.availableRoll; // Ensure the response matches this key
         })
         .catch((error) => {
@@ -820,5 +821,9 @@ export default {
   color: #ea5455; /* Error message color */
   font-size: 0.875em;
   transition: 0.5s; /* Adjust the font size */
+}
+.toast-primary {
+  background: #7367f0; /* Set your desired color */
+  color: #ffffff; /* Optional: ensures text is readable */
 }
 </style>

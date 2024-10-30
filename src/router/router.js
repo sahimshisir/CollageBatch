@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import FrontendLayout from '../components/layout/Front.vue';
-import BatchLayout from "../components/layout/Batch.vue";
+import BatchLayout from "../components/layout/batch.vue";
 import ProfileLayout from '../components/layout/Profile.vue';
 import Auth from '../components/layout/Authen.vue';
 import login from "../components/auth/login.vue";
 import register from "../components/auth/register.vue";
 import registerOtp from "../components/auth/registerOtp.vue";
+import forgot from "../components/auth/forgot.vue";
+import forgotOtp from "../components/auth/forgotOtp.vue";
+import resetPassword from "../components/auth/resetPassword.vue";
 import Main from '../components/router/frontend/pages/main.vue';
 import Batch from '../components/frontend/pages/Batch/batch.vue';
 import BatchAbout from '../components/frontend/pages/Batch/about.vue';
@@ -30,6 +33,9 @@ const routes = [
       { path: '', component: login },
       { path: 'register', component: register },
       { path: 'registerOtp', component: registerOtp },
+      { path: 'forgot', component: forgot },
+      { path: 'forgotOtp', component: forgotOtp }, // Ensure this is relative
+      { path: 'resetPassword', component: resetPassword },
     ],
   },
   {
@@ -43,13 +49,13 @@ const routes = [
     component: BatchLayout,
     children: [
       { path: '', component: Batch },
-      { path: '/BatchPost', component: Batch },
-      { path: '/BatchAbout', component: BatchAbout },
-      { path: '/BatchContent', component: BatchContent },
-      { path: '/BatchMember', component: BatchMember },
-      { path: '/BatchMedia', component: BatchMedia },
-      { path: '/Media/photo', component: BatchMediaPhoto },
-      { path: '/Media/video', component: BatchMediaVideo },
+      { path: 'BatchPost', component: Batch }, // Remove leading '/'
+      { path: 'BatchAbout', component: BatchAbout },
+      { path: 'BatchContent', component: BatchContent },
+      { path: 'BatchMember', component: BatchMember },
+      { path: 'BatchMedia', component: BatchMedia },
+      { path: 'Media/photo', component: BatchMediaPhoto },
+      { path: 'Media/video', component: BatchMediaVideo },
     ],
     meta: { requiresAuth: true },
   },
@@ -58,18 +64,19 @@ const routes = [
     component: ProfileLayout,
     children: [
       { path: '', component: Profile },
-      { path: '/Post', component: Profile },
-      { path: '/About', component: ProfileAbout },
-      { path: '/Content', component: ProfileContent },
-      { path: '/Member', component: ProfileMember },
-      { path: '/Media', component: ProfileMedia },
-      { path: '/media_profile_photo', component: ProfileMediaPhoto },
-      { path: '/media_profile_video', component: ProfileMediaVideo },
+      { path: 'Post', component: Profile },
+      { path: 'About', component: ProfileAbout },
+      { path: 'Content', component: ProfileContent },
+      { path: 'Member', component: ProfileMember },
+      { path: 'Media', component: ProfileMedia },
+      { path: 'media_profile_photo', component: ProfileMediaPhoto },
+      { path: 'media_profile_video', component: ProfileMediaVideo },
     ],
     meta: { requiresAuth: true },
   },
   { path: '/', redirect: '/' },
 ];
+
 
 const router = createRouter({
   history: createWebHistory(),

@@ -630,12 +630,6 @@ export default {
     clearSession() {
       localStorage.removeItem("registeredEmail");
       localStorage.removeItem("sessionExpiry");
-      // Optionally, redirect to the login page or show a message
-      this.toast.info("Session expired. Please log in again.", {
-        position: "top-right",
-        timeout: 5000,
-      });
-      this.$router.push("/"); // Redirect to login page
     },
 
     // Clear error for a specific field

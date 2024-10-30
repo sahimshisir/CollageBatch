@@ -159,6 +159,9 @@ export default {
       passwordFieldType: "password",
       isLoading: false,
     };
+  },mounted(){
+    localStorage.removeItem("forgot_password_email");
+    localStorage.removeItem("forgot_password_email_expiry");
   },
   methods: {
     validateForm() {

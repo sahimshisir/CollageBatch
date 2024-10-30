@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import FrontendLayout from '../components/layout/Front.vue';
-import BatchLayout from "../components/layout/batch.vue";
+import BatchLayout from "../components/layout/Batch.vue";
 import ProfileLayout from '../components/layout/Profile.vue';
 import Auth from '../components/layout/Authen.vue';
 import login from "../components/auth/login.vue";

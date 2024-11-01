@@ -111,7 +111,6 @@ import axios from "axios";
 import { inject } from "vue";
 import { useToast } from "vue-toastification";
 import Loader from "../include/Loader.vue";
-import { email } from "@vuelidate/validators";
 
 export default {
   components: {

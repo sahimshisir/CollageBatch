@@ -5,7 +5,7 @@
       <!-- About User -->
       <div class="card mb-4">
         <div class="card-body">
-          <small class="card-text text-uppercase fw-bold">Inro</small>
+          <small class="card-text text-uppercase fw-bold badge bg-primary d-block">Inro</small>
           <ul class="list-unstyled mb-4 mt-3">
             <li class="text-center">
               <span>
@@ -14,71 +14,76 @@
                 optio odit amet, eligendi dolorem recusandae nulla perspiciatis
                 architecto sequi facere suscipit in id!
               </span>
-              <p class="text-center text-uppercase fw-bold mt-1 mb-2 border p-2 border-2 text-heading">
-                <i class="ti ti-user text-heading"></i>
-                Bio
+              <a href="#">
+                <p class="text-center  mt-3 text-capitalize fw-bold mt-1 mb-2 border p-2 border-2 text-heading">
+                <i class="ti ti-user text-capitalize"></i>
+                Edit Bio
               </p>
+              </a>
             </li>
             <li class="d-flex align-items-center mb-3 mt-4">
               <i class="ti ti-user text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Full Name:</span>
-              <span>John Doe</span>
+              ><span class="fw-medium mx-2">Profile :</span>
+              <span class="fw-medium fw-bold text-heading ">Web Developer</span>
             </li>
             <li class="d-flex align-items-center mb-3 mt-4">
               <i class="ti ti-user text-heading"></i
-              ><span class="fw-medium mx-2 ">Studied at</span>
-              <span class="fw-bold text-heading">John Doe</span>
+              ><span class="fw-medium mx-2 ">Studied at <span class="fw-bold text-heading">Idris Ali Madbor Polytecnic Institute</span></span>
+              
             </li>
             <li class="d-flex align-items-center mb-3 mt-4">
               <i class="ti ti-user text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Full Name:</span>
-              <span>John Doe</span>
+              ><span class="fw-medium mx-2">Went To</span>
+              <span class="text-capitalize fw-bold text-heading">bajrajogini JK High School</span>
             </li>
             <li class="d-flex align-items-center mb-3 mt-4">
               <i class="ti ti-user text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Full Name:</span>
-              <span>John Doe</span>
+              ><span class="fw-medium mx-2">Lives In</span>
+              <span class="text-capitalize fw-bold text-heading">munshiganj, Dhaka Bangladesh</span>
             </li>
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-check text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Status:</span>
-              <span>Active</span>
-            </li>
-            <li class="d-flex align-items-center mb-3">
-              <i class="ti ti-crown text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Role:</span>
-              <span>Developer</span>
+              ><span class="fw-medium mx-2">Status:</span>
+              <span class="fw-bold text-heading ">Active</span>
             </li>
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-flag text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Country:</span>
-              <span>USA</span>
+              ><span class="fw-medium mx-2">Country:</span>
+              <span class="fw-bold text-heading">USA</span>
             </li>
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-file-description text-heading"></i
-              ><span class="fw-medium mx-2 text-heading">Languages:</span>
-              <span>English</span>
+              ><span class="fw-medium mx-2">Languages:</span>
+              <span class="fw-bold text-heading">English</span>
             </li>
-          </ul>
-          <small class="card-text text-uppercase">Contacts</small>
-          <ul class="list-unstyled mb-4 mt-3">
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-phone-call"></i
-              ><span class="fw-medium mx-2 text-heading">Contact:</span>
-              <span>(123) 456-7890</span>
+              ><span class="fw-medium mx-2">Contact:</span>
+              <span class="fw-bold text-heading">(123) 456-7890</span>
             </li>
-            <li class="d-flex align-items-center mb-3">
-              <i class="ti ti-brand-skype"></i
-              ><span class="fw-medium mx-2 text-heading">Skype:</span>
-              <span>john.doe</span>
-            </li>
+
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-mail"></i
-              ><span class="fw-medium mx-2 text-heading">Email:</span>
-              <span>john.doe@example.com</span>
+              ><span class="fw-medium mx-2">Email:</span>
+              <span class="fw-bold text-heading">john.doe@example.com</span>
             </li>
           </ul>
-          <small class="card-text text-uppercase">Teams</small>
+
+            <small class="card-text text-uppercase fw-bold badge bg-primary d-block">Social Information</small>
+          <ul class="list-unstyled mb-4 mt-3">
+
+            <li class="d-flex align-items-center flex-wrap mb-3 gap-2">
+
+              <a href="#"><span class="fw-medium mx-2 text-heading"><i class="ti ti-brand-facebook"></i></span></a>
+              <a href="#"><span class="fw-medium mx-2 text-heading"><i class="ti ti-brand-instagram"></i></span></a>
+              <a href="#"><span class="fw-medium mx-2 text-heading"><i class="ti ti-brand-twitter"></i></span></a>
+              <a href="#"><span class="fw-medium mx-2 text-heading"><i class="ti ti-brand-linkedin"></i></span></a>
+              <a href="#"><span class="fw-medium mx-2 text-heading"><i class="ti ti-brand-skype"></i></span></a>
+
+            </li>
+
+          </ul>
+          <small class="card-text badge bg-primary d-block fw-bold text-uppercase">Teams</small>
           <ul class="list-unstyled mb-0 mt-3">
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-brand-angular text-danger me-2"></i>
@@ -88,13 +93,20 @@
                 ><span>(126 Members)</span>
               </div>
             </li>
-            <li class="d-flex align-items-center">
+            <li class="d-flex align-items-center mb-3">
               <i class="ti ti-brand-react-native text-info me-2"></i>
               <div class="d-flex flex-wrap">
                 <span class="fw-medium me-2 text-heading">React Developer</span
                 ><span>(98 Members)</span>
               </div>
             </li>
+            <!-- button edit details -->
+            <a href="#">
+                <p class="text-center text-capitalize fw-bold mt-1 mb-3 border p-2 border-2 text-heading">
+                <i class="ti ti-user text-capitalize"></i>
+                Edit Details
+              </p>
+              </a>
           </ul>
         </div>
       </div>
@@ -102,23 +114,30 @@
       <!-- Profile Overview -->
       <div class="card mb-4">
         <div class="card-body">
-          <p class="card-text text-uppercase">Overview</p>
+          <p class="card-text fw-bold badge bg-primary text-uppercase d-block">Overview</p>
           <ul class="list-unstyled mb-0">
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-check"></i
-              ><span class="fw-medium mx-2">Task Compiled:</span>
-              <span>13.5k</span>
+              ><span class="fw-medium mx-2">Task Complete:</span>
+              <span class="fw-bold text-heading">13.5k</span>
             </li>
             <li class="d-flex align-items-center mb-3">
               <i class="ti ti-layout-grid"></i
               ><span class="fw-medium mx-2">Projects Compiled:</span>
-              <span>146</span>
+              <span class="fw-bold text-heading">146</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="ti ti-users"></i
               ><span class="fw-medium mx-2">Connections:</span>
-              <span>897</span>
+              <span class="fw-bold text-heading">897</span>
             </li>
+             <!-- button edit details -->
+             <a href="#">
+                <p class="text-center mt-3 text-capitalize fw-bold mt-1 mb-3 border p-2 border-2 text-heading">
+                <i class="ti ti-user text-capitalize"></i>
+                Edit overview
+              </p>
+              </a>
           </ul>
         </div>
       </div>

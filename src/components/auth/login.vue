@@ -133,7 +133,7 @@
 import axios from "axios";
 import { inject } from "vue";
 import { useToast } from "vue-toastification";
-import Loader from "../include/Loader.vue";
+import Loader from "../include";
 import router from "@/router/router";
 
 export default {

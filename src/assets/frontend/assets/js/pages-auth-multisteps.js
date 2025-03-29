@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
       if (multiStepsMobile) {
         new Cleave(multiStepsMobile, {
           phone: true,
-          phoneRegionCode: 'US'
+          phoneRegionCode: 'BD'
         });
       }
 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
               },
               regexp: {
                 regexp: /^[a-zA-Z0-9 ]+$/,
-                message: 'The name can only consist of alphabetical, number and space'
+                message: 'The name can only consist of alphabetical and Number'
               }
             }
           },
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
               },
               identical: {
                 compare: function () {
-                  return stepsValidationFormStep1.querySelector('[name="multiStepsPass"]').value;
+                  return stepsValidationFormStep1.querySelector('[id="multiStepsPass"]').value;
                 },
                 message: 'The password and its confirm are not the same'
               }
@@ -178,10 +178,22 @@ document.addEventListener('DOMContentLoaded', function (e) {
               }
             }
           },
-          multiStepsAddress: {
+          multiStepsMobile: {
             validators: {
               notEmpty: {
-                message: 'Please enter your address'
+                message: 'Please enter your Number'
+              },
+              stringLength: {
+                min: 11,
+                max: 11,
+                message: 'The number must be 11'
+              },
+            }
+          },
+          birthdate: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your Date of Birth'
               }
             }
           }
@@ -199,7 +211,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 case 'multiStepsFirstName':
                   return '.col-sm-6';
                 case 'multiStepsAddress':
-                  return '.col-md-12';
+                  return '.col-md-6';
+                case 'birthdate':
+                  return '.col-md-6';
                 default:
                   return '.row';
               }
@@ -216,10 +230,24 @@ document.addEventListener('DOMContentLoaded', function (e) {
       // Social links
       const multiSteps3 = FormValidation.formValidation(stepsValidationFormStep3, {
         fields: {
-          multiStepsCard: {
+          semister: {
             validators: {
               notEmpty: {
-                message: 'Please enter card number'
+                message: 'Please select your semister'
+              }
+            }
+          },
+          btebroll: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your BTEB roll'
+              }
+            }
+          },
+          session: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your session'
               }
             }
           }
@@ -234,11 +262,15 @@ document.addEventListener('DOMContentLoaded', function (e) {
               // field is the field name
               // ele is the field element
               switch (field) {
-                case 'multiStepsCard':
-                  return '.col-md-12';
+                case 'semister':
+                  return '.col-md-4';
+                case 'btebroll':
+                  return '.col-md-4';
+                case 'session':
+                  return '.col-md-4';
 
                 default:
-                  return '.col-dm-6';
+                  return '.col-dm-4';
               }
             }
           }),

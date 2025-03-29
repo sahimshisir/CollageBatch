@@ -1,10 +1,3 @@
-<script setup>
-import sidebar from "../frontend/include/sidebar.vue";
-import Header from "../frontend/include/topbar.vue";
-import Content from "../frontend/pages/main.vue";
-// import footar from './components/frontend/include/footer.vue'
-</script>
-
 <template>
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
@@ -23,12 +16,12 @@ import Content from "../frontend/pages/main.vue";
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
-          <Content/>
+          <router-view></router-view>
 
           <!-- / Content -->
 
           <!-- Footer -->
-          <!-- <footar/> -->
+          <footar/>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
@@ -48,11 +41,30 @@ import Content from "../frontend/pages/main.vue";
 </template>
 
 <script>
+import sidebar from "../frontend/include/sidebar.vue";
+import Header from "../frontend/include/topbar.vue";
+import footar from '../frontend/include/footer.vue';
+
 export default {
-  mounted() {
-    import("../../assets/frontend/assets/js/dashboards-analytics.js"),
-      import("../../assets/frontend/assets/js/main.js"),
+components:{
+  Header,
+  sidebar,
+  footar,
+  
+},
+mounted() {
+    import("../../assets/frontend/assets/js/dashboards-analytics.js");
+      import("../../assets/frontend/assets/js/main.js");
       import("../../assets/frontend/assets/js/extended-ui-media-player.js");
+
+      import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.css");
+      import("../../assets/frontend/assets/vendor/libs/bootstrap-select/bootstrap-select.js");
+      import("../../assets/frontend/assets/vendor/libs/select2/select2.js");
+      import("../../assets/frontend/assets/js/forms-selects.js");
+      import("../../assets/frontend/assets/css/style.css");
+
+     
   },
 };
 </script>
+
